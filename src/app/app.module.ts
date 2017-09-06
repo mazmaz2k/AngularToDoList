@@ -4,12 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 /* import Components */
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+
+/* import Services */
+import { LogRegService } from './log-reg.service';
 
 const routes: Routes = [
     {
@@ -41,9 +45,10 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [LogRegService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
