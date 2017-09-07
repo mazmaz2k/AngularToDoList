@@ -14,7 +14,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
-    console.log('registered successfully');
     this.logReg.register();
   }
 

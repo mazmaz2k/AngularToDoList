@@ -7,4 +7,4 @@ If you dont where to find this folder follow the next steps:
 Generate new project by running: 'ng new project_name'
 After that in 'project_name' folder you can find the 'node_modules' folder, and copy it to your main project folder.
 Install bootstrap by running the next command: npm install --save bootstrap.
-                                
+Install firebase by running the next command: npm install --save angularfire2 firebase

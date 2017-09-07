@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 /* import Components */
 import { AppComponent } from './app.component';
@@ -15,6 +17,18 @@ import { LoginFormComponent } from './login-form/login-form.component';
 /* import Services */
 import { LogRegService } from './log-reg.service';
 
+/* Firebase Configurations */
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyDwE8MwRZpBdRg_7rvi1UeH95lTpZD5i6U',
+  authDomain: 'todoapplicatoin.firebaseapp.com',
+  databaseURL: 'https://todoapplicatoin.firebaseio.com',
+  projectId: 'todoapplicatoin',
+  storageBucket: 'todoapplicatoin.appspot.com',
+  messagingSenderId: '20716683033'
+};
+
+/* Routers Configurations */
 const routes: Routes = [
     {
       path: '',
@@ -46,7 +60,9 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [LogRegService],
   bootstrap: [AppComponent]
