@@ -1,4 +1,7 @@
 
+/* import Gesture Support */
+import 'hammerjs';
+
 /* import Modules */
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,6 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+/* Angular Materials Modules Import */
+import { MdInputModule, MdButtonModule, MdCardModule } from '@angular/material';
 
 /* import Components */
 import { AppComponent } from './app.component';
@@ -58,11 +66,16 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MdCardModule,
     RouterModule.forRoot(routes),
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MdInputModule,
+    MdButtonModule
   ],
   providers: [LogRegService],
   bootstrap: [AppComponent]

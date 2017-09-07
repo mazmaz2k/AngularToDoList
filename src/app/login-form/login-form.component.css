@@ -1,0 +1,18 @@
+@import "http://fonts.fontstorage.com/import/flow.css";
+
+.glyphicon {
+    font-size: 20px;
+}
+
+.auth {
+    display: inline;
+}
+
+h1 {
+    font-family: 'Flow Ext';
+    font-size: 40px;
+}
+
+md-card {
+    margin: 0 auto;
+}

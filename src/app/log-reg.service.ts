@@ -8,11 +8,11 @@ export class LogRegService {
 
    constructor(private af: AngularFireAuth) { }
 
-   register() {
-     this.af.auth.createUserWithEmailAndPassword('test@test.com', '123456');
+   register(email, password) {
+     this.af.auth.createUserWithEmailAndPassword(email, password);
    }
 
-   login() {
-     this.af.auth.signInWithEmailAndPassword('t@test.com', '123456');
+   login(email, password) {
+     return this.af.auth.signInWithEmailAndPassword(email, password);
    }
 }
