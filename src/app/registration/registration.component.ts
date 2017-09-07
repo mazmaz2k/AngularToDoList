@@ -1,6 +1,8 @@
 import { LogRegService } from './../log-reg.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
 
   form: FormGroup;
-  constructor(private logReg: LogRegService) { }
+  constructor(private logReg: LogRegService, private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -24,6 +26,7 @@ export class RegistrationComponent implements OnInit {
 
   register() {
     this.logReg.register(this.form.value.email, this.form.value.password);
+    this.router.navigate(['login'] );
   }
 
   checkValid(name) {
