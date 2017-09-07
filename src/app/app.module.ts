@@ -21,6 +21,8 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { ToDoItemComponent } from './to-do-item/to-do-item.component';
 
 /* import Services */
 import { LogRegService } from './log-reg.service';
@@ -52,6 +54,10 @@ const routes: Routes = [
       component: RegistrationComponent
     },
     {
+      path: 'list',
+      component: ToDoListComponent
+    },
+    {
       path: '**',
       component: PageNotFoundComponent
     }
@@ -62,7 +68,9 @@ const routes: Routes = [
     AppComponent,
     LoginFormComponent,
     RegistrationComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ToDoListComponent,
+    ToDoItemComponent
   ],
   imports: [
     BrowserModule,

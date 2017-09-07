@@ -1,6 +1,7 @@
 import { LogRegService } from './../log-reg.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginFormComponent implements OnInit {
   form: FormGroup;
   private logMsg: string;
 
-  constructor(private fb: FormBuilder, private log: LogRegService) { }
+  constructor(private fb: FormBuilder, private log: LogRegService, private router: Router) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -27,7 +28,11 @@ export class LoginFormComponent implements OnInit {
       this.logMsg = 'Please fill all the fields';
       return null;
     }
-    this.log.login(this.form.value.email, this.form.value.password).then(() => this.logMsg = 'Succesfully Loged In').catch(() => {
+    this.log.login(this.form.value.email, this.form.value.password).then(() => {
+       this.logMsg = 'Succesfully Loged In';
+       this.router.navigate(['/list']);
+
+      }).catch(() => {
       this.logMsg = 'Incorrect email or password';
     });
   }
