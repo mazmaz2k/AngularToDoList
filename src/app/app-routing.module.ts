@@ -25,8 +25,8 @@ const routes: Routes = [
     },
     {
       path: 'list',
-      canActivate: [AuthGuard],
-      component: ToDoListComponent
+      component: ToDoListComponent,
+      canActivate: [AuthGuard]
     },
     {
       path: '**',
@@ -34,21 +34,12 @@ const routes: Routes = [
     }
   ];
 
-export const ComponentsArray = [
-    LoginFormComponent,
-    RegistrationComponent,
-    ToDoItemComponent,
-    ToDoListComponent,
-    PageNotFoundComponent,
-    NavComponent
-];
 
 @NgModule({
     imports: [
         RouterModule.forRoot(routes)
     ],
-    exports: [RouterModule],
-    providers: [AuthGuard]
+    exports: [RouterModule]
 })
 
 export class RoutingModule {}

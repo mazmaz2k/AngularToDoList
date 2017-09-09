@@ -1,3 +1,4 @@
+
 /* import Gesture Support */
 import 'hammerjs';
 
@@ -14,15 +15,26 @@ import { AngularMaterialModule } from './angular-material.module';
 
 /* import Components */
 import { AppComponent } from './app.component';
-import { ComponentsArray } from './app-routing.module';
+import { NavComponent } from './nav/nav.component';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { ToDoItemComponent } from './to-do-item/to-do-item.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 /* import Services */
 import { LogRegService } from './log-reg.service';
+import { AuthGuard } from './AuthGuard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentsArray
+    LoginFormComponent,
+    RegistrationComponent,
+    ToDoItemComponent,
+    ToDoListComponent,
+    PageNotFoundComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +46,7 @@ import { LogRegService } from './log-reg.service';
     RoutingModule,
     AngularMaterialModule
   ],
-  providers: [LogRegService],
+  providers: [LogRegService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
