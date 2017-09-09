@@ -3,22 +3,22 @@
       <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right">
           <li routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['']">
+            <a [routerLink]="['createnewtask']">
               Create New Task
             </a>
           </li>
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['']">
+          <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a [routerLink]="['show-all-tasks']">
               Show All Tasks
             </a>
-          </li>
+          </li> -->
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['']">
+            <a [routerLink]="['my-profile']">
               My Profile 
             </a>
           </li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['/login']" (click)="logout()">
+            <a [routerLink]="['logout']" (click)="logout()">
                Logout
             </a>
           </li>

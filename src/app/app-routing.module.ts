@@ -26,7 +26,22 @@ const routes: Routes = [
     {
       path: 'list',
       component: ToDoListComponent,
-      canActivate: [AuthGuard]
+      // canActivate: [AuthGuard],
+      children: [
+        {
+          path: 'createnewtask',
+          component: PageNotFoundComponent
+        },
+        {
+          path: 'my-profile',
+          component: PageNotFoundComponent
+        },
+        {
+          path: 'logout',
+          redirectTo: '/login',
+          pathMatch: 'prefix'
+        },
+      ]
     },
     {
       path: '**',
