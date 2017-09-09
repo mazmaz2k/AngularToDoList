@@ -18,7 +18,7 @@
             </a>
           </li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['']">
+            <a [routerLink]="['']" (click)="logout()">
                Logout
             </a>
           </li>

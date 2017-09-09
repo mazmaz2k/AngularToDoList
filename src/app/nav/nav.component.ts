@@ -1,3 +1,4 @@
+import { LogRegService } from './../log-reg.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: LogRegService) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.service.logout();
   }
 
 }

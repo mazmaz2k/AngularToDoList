@@ -30,6 +30,7 @@ export class LoginFormComponent implements OnInit {
     }
     this.log.login(this.form.value.email, this.form.value.password).then(() => {
        this.logMsg = 'Succesfully Loged In';
+       this.log.changeStatus();
        this.router.navigate(['/list']);
 
       }).catch(() => {

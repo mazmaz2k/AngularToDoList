@@ -1,3 +1,4 @@
+import { AuthGuard } from './AuthGuard.service';
 import { NavComponent } from './nav/nav.component';
 import { ToDoItemComponent } from './to-do-item/to-do-item.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
     },
     {
       path: 'list',
+      canActivate: [AuthGuard],
       component: ToDoListComponent
     },
     {
@@ -45,7 +47,8 @@ export const ComponentsArray = [
     imports: [
         RouterModule.forRoot(routes)
     ],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers: [AuthGuard]
 })
 
 export class RoutingModule {}
