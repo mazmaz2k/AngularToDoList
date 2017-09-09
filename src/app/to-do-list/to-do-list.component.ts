@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToDoListComponent implements OnInit {
 
+  private userName = 'Alex';
+  private items = ['1', '2', '3', '4'];
   constructor() { }
 
   ngOnInit() {

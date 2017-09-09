@@ -1,7 +1,7 @@
 import { LogRegService } from './../log-reg.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class LoginFormComponent implements OnInit {
   form: FormGroup;
   private logMsg: string;
 
-  constructor(private fb: FormBuilder, private log: LogRegService, private router: Router) { }
+  constructor(private fb: FormBuilder, private log: LogRegService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.form = this.fb.group({

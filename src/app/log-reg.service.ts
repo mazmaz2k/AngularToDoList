@@ -9,7 +9,7 @@ export class LogRegService {
    constructor(private af: AngularFireAuth) { }
 
    register(email, password) {
-     this.af.auth.createUserWithEmailAndPassword(email, password);
+     return this.af.auth.createUserWithEmailAndPassword(email, password);
    }
 
    login(email, password) {
