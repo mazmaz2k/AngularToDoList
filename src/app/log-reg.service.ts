@@ -7,10 +7,10 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class LogRegService {
 
-  private loggedIn = false;
+  public isSignInStream: Observable<boolean>;
   constructor(private af: AngularFireAuth) {
-    this.af.auth.onAuthStateChanged((account) => {
-      this.loggedIn = account !== null ? true : false;
+    this.isSignInStream = this.af.authState.map<firebase.User, boolean>((user: firebase.User) => {
+      return user != null;
     });
   }
 
@@ -20,10 +20,6 @@ export class LogRegService {
 
    login(email, password) {
      return this.af.auth.signInWithEmailAndPassword(email, password);
-   }
-
-   isLoggedIn() {
-     return this.loggedIn;
    }
 
    logout() {
