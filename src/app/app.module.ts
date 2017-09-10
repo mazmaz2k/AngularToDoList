@@ -1,3 +1,4 @@
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 /* import Gesture Support */
 import 'hammerjs';
@@ -26,6 +27,9 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { LogRegService } from './log-reg.service';
 import { AuthGuard } from './AuthGuard.service';
 
+import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/operator/map';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +39,7 @@ import { AuthGuard } from './AuthGuard.service';
     ToDoListComponent,
     PageNotFoundComponent,
     NavComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

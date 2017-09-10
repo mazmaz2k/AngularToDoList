@@ -1,3 +1,4 @@
+import { MyProfileComponent } from './my-profile/my-profile.component';
 import { AuthGuard } from './AuthGuard.service';
 import { NavComponent } from './nav/nav.component';
 import { ToDoItemComponent } from './to-do-item/to-do-item.component';
@@ -26,7 +27,7 @@ const routes: Routes = [
     {
       path: 'list',
       component: ToDoListComponent,
-      // canActivate: [AuthGuard],
+      canActivate: [AuthGuard],
       children: [
         {
           path: 'createnewtask',
@@ -34,7 +35,7 @@ const routes: Routes = [
         },
         {
           path: 'my-profile',
-          component: PageNotFoundComponent
+          component: MyProfileComponent
         },
         {
           path: 'logout',

@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+import { ActivatedRoute, Router, Params, NavigationEnd } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
@@ -20,9 +22,16 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 })
 export class ToDoListComponent implements OnInit {
 
-  constructor() { }
+  private showHelloMsg = true;
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.router.events.subscribe((event)  => {
+      if ((<NavigationEnd>event).url !== '/list') {
+        this.showHelloMsg = false;
+      } else {
+        this.showHelloMsg = true;
+      }
+    });
   }
-
 }

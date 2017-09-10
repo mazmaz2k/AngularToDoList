@@ -2,16 +2,16 @@
   <nav class="navbar navbar-default">
       <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right">
-          <li routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['createnewtask']">
-              Create New Task
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a [routerLink]="['/list']">
+              Home
             </a>
           </li>
-          <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['show-all-tasks']">
-              Show All Tasks
-            </a>
-          </li> -->
+          <li routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">
+              <a [routerLink]="['createnewtask']">
+                Create New Task
+              </a>
+            </li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <a [routerLink]="['my-profile']">
               My Profile 

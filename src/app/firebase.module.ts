@@ -1,6 +1,7 @@
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { NgModule } from '@angular/core';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 /* Firebase Configurations */
 export const firebaseConfig = {
@@ -15,9 +16,10 @@ export const firebaseConfig = {
 @NgModule({
     imports: [
         AngularFireModule.initializeApp(firebaseConfig),
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        AngularFireDatabaseModule
     ],
-    exports: [AngularFireModule, AngularFireAuthModule]
+    exports: [AngularFireModule, AngularFireAuthModule, AngularFireDatabaseModule]
 })
 
 export class FireBaseModule {}

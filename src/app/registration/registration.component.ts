@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
 
+
   form: FormGroup;
   constructor(private logReg: LogRegService, private router: Router) { }
 
@@ -27,8 +28,8 @@ export class RegistrationComponent implements OnInit {
   register() {
     this.logReg.register(this.form.value.email, this.form.value.password).then(() => {
       this.router.navigate(['/login']);
-    }).catch(() => {
-      console.log('Email already in use');
+    }).catch((error) => {
+      console.log(error);
     });
   }
 

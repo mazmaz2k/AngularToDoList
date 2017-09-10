@@ -28,14 +28,13 @@ export class LoginFormComponent implements OnInit {
       this.logMsg = 'Please fill all the fields';
       return null;
     }
-    this.log.login(this.form.value.email, this.form.value.password).then(() => {
-       this.logMsg = 'Succesfully Loged In';
-       this.log.changeStatus();
+    this.log.login(this.form.value.email, this.form.value.password).then(
+      success => {
+       this.logMsg = success;
        this.router.navigate(['/list']);
 
-      }).catch(() => {
-      this.logMsg = 'Incorrect email or password';
-    });
+      }, error => {
+        this.logMsg = error.message;
+      });
   }
-
 }
