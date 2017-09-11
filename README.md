@@ -18,3 +18,4 @@ If you dont know where to find 'node_modules' follow the next steps:
 * Animations: npm install --save @angular/animations
 * Gesture-Support: npm install --save hammerjs
 * Material-Icons: npm install material-design-icons
+* Flex Layout: npm install @angular/flex-layout --save
