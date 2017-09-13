@@ -1,17 +1,21 @@
 # ToDo Web Application
 
 This project was made for practise purpose only.
-Clone that project by typing the next command to the console: 'git clone https://github.com/Zvukamar/todoWebApplication.git'
-After cloning the project make sure you have the 'node_modules' folder in your main folder that you have clonned the project.
-If you dont where to find this folder follow the next steps:
-Generate new project by running: 'ng new project_name'
-After that in 'project_name' folder you can find the 'node_modules' folder, and copy it to your main project folder.
 
-#What do you need to install?
+## Where to start?
+At the beginning, you need to clone that project to your local machine:<br/>
+'git clone https://github.com/Zvukamar/todoWebApplication.git' <br/>
+After that, make sure you have the 'node_modules' folder in your main folder. </br>
+If you dont know where to find 'node_modules' follow the next steps:
+  * Generate new project with @angular/cli: 'ng new testproject'
+  * You can find the 'node_modules' in testproject folder, copy that and you are done.
 
-* Install bootstrap by running the next command: npm install --save bootstrap.
-* Install firebase by running the next command: npm install --save angularfire2 firebase
-* Install Angular material by running the next command: npm install --save @angular/material @angular/cdk
-* Install Animation by running the next command: npm install --save @angular/animations
-* Install Gesture Support by running the next command: npm install --save hammerjs
-* Install Material Icons: npm install material-design-icons
+## What do you need to install?
+
+* Bootstrap: npm install --save bootstrap.
+* Firebase: npm install --save angularfire2 firebase
+* Angular-Material: npm install --save @angular/material @angular/cdk
+* Animations: npm install --save @angular/animations
+* Gesture-Support: npm install --save hammerjs
+* Material-Icons: npm install material-design-icons
+* Flex Layout: npm install @angular/flex-layout --save
