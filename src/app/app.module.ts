@@ -1,3 +1,4 @@
+import { CreateItemComponent } from './create-item/create-item.component';
 
 /* import Gesture Support */
 import 'hammerjs';
@@ -41,7 +42,8 @@ import 'rxjs/add/operator/map';
     ToDoListComponent,
     PageNotFoundComponent,
     NavComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    CreateItemComponent
   ],
   imports: [
     BrowserModule,

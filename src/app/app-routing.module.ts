@@ -1,3 +1,4 @@
+import { CreateItemComponent } from './create-item/create-item.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { AuthGuard } from './AuthGuard.service';
 import { NavComponent } from './nav/nav.component';
@@ -31,7 +32,7 @@ const routes: Routes = [
       children: [
         {
           path: 'createnewtask',
-          component: PageNotFoundComponent
+          component: CreateItemComponent
         },
         {
           path: 'my-profile',
