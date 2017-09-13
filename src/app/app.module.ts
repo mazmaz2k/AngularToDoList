@@ -1,4 +1,3 @@
-import { MyProfileComponent } from './my-profile/my-profile.component';
 
 /* import Gesture Support */
 import 'hammerjs';
@@ -22,10 +21,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegistrationComponent } from './registration/registration.component';
 import { ToDoItemComponent } from './to-do-item/to-do-item.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+
 
 /* import Services */
 import { LogRegService } from './log-reg.service';
 import { AuthGuard } from './AuthGuard.service';
+
 
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/operator/map';

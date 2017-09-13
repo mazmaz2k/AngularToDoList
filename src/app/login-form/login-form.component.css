@@ -16,3 +16,8 @@ h1 {
 md-card {
     margin: 0 auto;
 }
+
+.loggedIn{
+    size:20px;
+    color:red;
+}
