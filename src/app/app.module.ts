@@ -1,3 +1,5 @@
+import { ReversePipe } from './reverse.pipe';
+import { ShowAllTasksComponent } from './show-all-tasks/show-all-tasks.component';
 import { PushService } from './push/push.service';
 import { CreateItemComponent } from './create-item/create-item.component';
 
@@ -44,7 +46,9 @@ import 'rxjs/add/operator/map';
     PageNotFoundComponent,
     NavComponent,
     MyProfileComponent,
-    CreateItemComponent
+    CreateItemComponent,
+    ShowAllTasksComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

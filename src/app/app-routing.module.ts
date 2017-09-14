@@ -1,3 +1,4 @@
+import { ShowAllTasksComponent } from './show-all-tasks/show-all-tasks.component';
 import { CreateItemComponent } from './create-item/create-item.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { AuthGuard } from './AuthGuard.service';
@@ -33,6 +34,10 @@ const routes: Routes = [
         {
           path: 'createnewtask',
           component: CreateItemComponent
+        },
+        {
+          path: 'showall',
+          component: ShowAllTasksComponent
         },
         {
           path: 'my-profile',

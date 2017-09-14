@@ -1,0 +1,4 @@
+<div *ngFor="let item of push.items | async | reverse">
+    <app-to-do-item [item]="item"></app-to-do-item>
+    <hr/>
+  </div>
