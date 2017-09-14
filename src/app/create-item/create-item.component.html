@@ -1,13 +1,21 @@
+<h1>
+  Add Item To The List
+</h1>
+<hr/>
 <md-card fxLayout="row">
-  <img src="http://images.entertainment.ie/images_content/rectangle/620x372/E-T.jpg" alt="Missing photo">
-  <!-- <md-input-container fxFlex dividerColor="warn"></md-input-container> -->
-  <md-input-container>
-    <input mdInput type="text" placeholder="Make todo in the list" required>
-  </md-input-container>
-  <md-input-container>  <input mdInput type="date" placeholder="Make todo in the list" required>
-  </md-input-container>
-  <md-input-container>
-    <input mdInput type="time" placeholder="Make todo in the list" required>
-  </md-input-container>
-
+ <form [formGroup]="form" (ngSubmit)="onSubmit()">
+   <div class="form-group">
+      <md-input-container>
+        <input mdInput type="text" formControlName="msg" placeholder="What to do?">
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container> 
+         <input mdInput type="text" formControlName="date" placeholder="Dead Line">
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <button md-raised-button color="primary" type="submit">Add</button>
+    </div>
+ </form>
 </md-card>

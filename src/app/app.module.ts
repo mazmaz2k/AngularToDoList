@@ -1,3 +1,4 @@
+import { PushService } from './push/push.service';
 import { CreateItemComponent } from './create-item/create-item.component';
 
 /* import Gesture Support */
@@ -55,7 +56,7 @@ import 'rxjs/add/operator/map';
     RoutingModule,
     AngularMaterialModule
   ],
-  providers: [LogRegService, AuthGuard],
+  providers: [LogRegService, AuthGuard, PushService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

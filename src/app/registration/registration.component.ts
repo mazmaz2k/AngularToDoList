@@ -1,3 +1,4 @@
+import { Users } from './../users';
 import { LogRegService } from './../log-reg.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -26,6 +27,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
+    const user = new Users({
+      firstName: this.form.controls['firstName'].value,
+      lastName: this.form.controls['lastName'].value,
+      email: this.form.controls['email'].value
+    });
     this.logReg.register(this.form.value.email, this.form.value.password).then(() => {
       this.router.navigate(['/login']);
     }).catch((error) => {

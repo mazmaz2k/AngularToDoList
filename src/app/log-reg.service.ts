@@ -7,9 +7,11 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class LogRegService {
 
+  public userUID: string;
   public isSignInStream: Observable<boolean>;
   constructor(private af: AngularFireAuth) {
     this.isSignInStream = this.af.authState.map<firebase.User, boolean>((user: firebase.User) => {
+      this.userUID = user && user.uid;
       return user != null;
     });
   }
