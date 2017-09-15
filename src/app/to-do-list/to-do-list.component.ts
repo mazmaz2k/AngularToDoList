@@ -23,17 +23,16 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 })
 export class ToDoListComponent implements OnInit {
 
-  private showHelloMsg: Observable<boolean>;
-  constructor(private router: Router, private route: ActivatedRoute) { }
-
-  ngOnInit() {
-  //   this.router.events.subscribe((event)  => {
-  //     if ((<NavigationEnd>event).url !== '/list') {
-  //       this.showHelloMsg = false;
-  //     } else {
-  //       this.showHelloMsg = true;
-  //     }
-  //   });
-
+  private showHelloMsg: boolean;
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.router.events.subscribe(event => {
+      if ((<NavigationEnd>event).url === '/list') {
+        this.showHelloMsg = true;
+      } else {
+        this.showHelloMsg = false;
+      }
+    });
    }
+
+  ngOnInit() {}
 }

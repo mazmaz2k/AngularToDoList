@@ -1,3 +1,4 @@
+import { UsersService } from './users/users.service';
 import { ReversePipe } from './reverse.pipe';
 import { ShowAllTasksComponent } from './show-all-tasks/show-all-tasks.component';
 import { PushService } from './push/push.service';
@@ -60,7 +61,7 @@ import 'rxjs/add/operator/map';
     RoutingModule,
     AngularMaterialModule
   ],
-  providers: [LogRegService, AuthGuard, PushService],
+  providers: [LogRegService, AuthGuard, PushService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
