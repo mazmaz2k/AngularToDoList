@@ -17,7 +17,8 @@ export class CreateItemComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       msg: ['', Validators.required],
-      date: ['', Validators.required]
+      date: ['', Validators.required],
+      time: ['', Validators.required]
     });
   }
 
@@ -29,7 +30,8 @@ export class CreateItemComponent implements OnInit {
     const item = new Item({
       userUID: this.logReg.userUID,
       msg: this.form.controls['msg'].value,
-      date: this.form.controls['date'].value
+      date: this.form.controls['date'].value,
+      time: this.form.controls['time'].value,
     });
     this.serv.add(item);
     this.form.reset();
