@@ -13,7 +13,7 @@ If you dont know where to find 'node_modules' follow the next steps:
 ## What do you need to install?
 
 * Bootstrap4: npm install bootstrap@4.0.0-alpha.6 (If you have already bootstrap3 installed: npm uninstall bootstrap)
-* Ngx-bootstrap: npm install --save ngx-bootstrap (for some bootstrap cool features, you can check it [here]:(https://valor-software.com/))
+* Ngx-bootstrap: npm install --save ngx-bootstrap (for some bootstrap cool features, you can check it [here](https://valor-software.com/))
 * Firebase: npm install --save angularfire2 firebase
 * Angular-Material: npm install --save @angular/material @angular/cdk
 * Animations: npm install --save @angular/animations
