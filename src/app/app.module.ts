@@ -27,7 +27,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ToDoItemComponent } from './to-do-item/to-do-item.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
-
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 /* import Services */
 import { LogRegService } from './log-reg.service';
@@ -59,7 +59,8 @@ import 'rxjs/add/operator/map';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [LogRegService, AuthGuard, PushService, UsersService],
   bootstrap: [AppComponent]
