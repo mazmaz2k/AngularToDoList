@@ -1,33 +1,43 @@
-<div class="text-center">
-  <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <ul class="nav navbar-nav navbar-right">
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['/list']">
-              Home
-            </a>
-          </li>
-          <li routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">
-              <a [routerLink]="['showall']">
-                Show All The Tasks
-              </a>
-            </li>
-          <li routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">
-              <a [routerLink]="['createnewtask']">
-                Create New Task
-              </a>
-            </li>
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['my-profile']">
-              My Profile 
-            </a>
-          </li>
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['logout']" (click)="logout()">
-               Logout
-            </a>
-          </li>
-        </ul>
+<nav>
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/list']">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['showall']">Show All The Tasks</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['createnewtask']">Create New Task</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['my-profile']">My Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['logout']" (click)="logout()">Logout</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+
+      <div class="dropdown-menu">
+        <li class="dropdown-item">
+          1
+        </li>
       </div>
-    </nav>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="btn-group" dropdown>
+  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul *dropdownMenu class="dropdown-menu" role="menu">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+    </li>
+  </ul>
 </div>

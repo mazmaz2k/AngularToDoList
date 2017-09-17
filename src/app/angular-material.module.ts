@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 /* Angular Materials Modules Import */
-import { MdInputModule, MdButtonModule, MdCardModule, MdToolbarModule, MdSidenavModule } from '@angular/material';
+import { MdInputModule, MdButtonModule, MdCardModule, MdToolbarModule, MdSidenavModule, MdGridListModule } from '@angular/material';
 
 @NgModule({
     imports: [
@@ -9,14 +9,16 @@ import { MdInputModule, MdButtonModule, MdCardModule, MdToolbarModule, MdSidenav
         MdButtonModule,
         MdCardModule,
         MdToolbarModule,
-        MdSidenavModule
+        MdSidenavModule,
+        MdGridListModule
     ],
     exports: [
         MdInputModule,
         MdButtonModule,
         MdCardModule,
         MdToolbarModule,
-        MdSidenavModule
+        MdSidenavModule,
+        MdGridListModule
     ]
 })
 
