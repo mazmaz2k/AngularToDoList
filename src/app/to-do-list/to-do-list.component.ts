@@ -44,10 +44,8 @@ export class ToDoListComponent implements OnInit {
       this.userServ.userData.subscribe(user => {
         this.user = user;
       });
-    console.log('constructor');
    }
 
   ngOnInit() {
-    console.log('oninit');
   }
 }
