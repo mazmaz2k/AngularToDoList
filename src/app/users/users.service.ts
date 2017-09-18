@@ -16,5 +16,7 @@ export class UsersService {
   getUserData(key: string) {
      this.userData = this.db.object(`/users/${key}`);
   }
-
+  setUserData(user: Users, key: string) {
+    this.db.object(`/users/${key}`).set(user);
+  }
 }

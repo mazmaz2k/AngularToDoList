@@ -1,39 +1,39 @@
 <h2 class="text-center"> Create New User </h2>
 <div>
-<form [formGroup]="form" (ngSubmit)="register()">
-  <div class="form-group">
-    <label for="firstName"> First Name </label>
-    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" formControlName="firstName">
-  </div>
-  <div class="alert alert-warning" *ngIf="checkValid('firstName')">
-       First Name Is Required
-  </div>
-  <div class="form-group">
-      <label for="lastName"> Last Name </label>
-      <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" formControlName="lastName">      
-  </div>
-  <div class="alert alert-warning" *ngIf="checkValid('lastName')">
-        Last Name Is Required
-   </div>
-  <div class="form-group">
-      <label for="email"> Email </label>
-      <input type="type" class="form-control" name="email" id="email" placeholder="Email Address" formControlName="email">      
-  </div>
-  <div class="alert alert-warning" *ngIf="checkValid('email')">
-        Email is NOT valid
-   </div>
-  <div class="form-group">
-      <label for="password"> Password </label>
-      <input type="password" class="form-control" name="password" id="password" placeholder="Password" formControlName="password">      
-  </div>
-  <div class="alert alert-warning" *ngIf="checkValid('password')">
-        Password must be between 6 characters and 16 characters length
-   </div>
-  <div class="form-group">
-      <label for="passwordRepeat"> Repeat Password </label>
-      <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Confirm Password" formControlName="repeatPassword">      
-  </div>
-  <div class="form-group">
-    <input type="submit" class="form-control btn btn-primary" value="Sign Up" [disabled]="form.invalid">
-  </div>
-</form>
+    <form [formGroup]="form" (ngSubmit)="register()">
+        <div class="form-group">
+            <label for="firstName"> First Name </label>
+            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" formControlName="firstName">
+        </div>
+        <div class="alert alert-warning" *ngIf="checkValid('firstName')">
+            First Name Is Required
+        </div>
+        <div class="form-group">
+            <label for="lastName"> Last Name </label>
+            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" formControlName="lastName">
+        </div>
+        <div class="alert alert-warning" *ngIf="checkValid('lastName')">
+            Last Name Is Required
+        </div>
+        <div class="form-group">
+            <label for="email"> Email </label>
+            <input type="type" class="form-control" name="email" id="email" placeholder="Email Address" formControlName="email">
+        </div>
+        <div class="alert alert-warning" *ngIf="checkValid('email')">
+            Email is NOT valid
+        </div>
+        <div class="form-group">
+            <label for="password"> Password </label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" formControlName="password">
+        </div>
+        <div class="alert alert-warning" *ngIf="checkValid('password')">
+            Password must be between 6 characters and 16 characters length
+        </div>
+        <div class="form-group">
+            <label for="passwordRepeat"> Repeat Password </label>
+            <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Confirm Password" formControlName="repeatPassword">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="form-control btn btn-primary" value="Sign Up" [disabled]="form.invalid">
+        </div>
+    </form>

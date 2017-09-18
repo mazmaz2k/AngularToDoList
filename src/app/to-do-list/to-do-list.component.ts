@@ -27,10 +27,10 @@ import { Users } from '../users';
 export class ToDoListComponent implements OnInit {
 
   private showHelloMsg: boolean;
-  private user = new Users({
+  private _user = new Users({
     firstName: '',
-    lastName: '',
-    email: ''
+    lastName: ''// ,
+    // email: ''
   });
   constructor(private router: Router, private route: ActivatedRoute, private userServ: UsersService, private logreg: LogRegService) {
     this.userServ.getUserData(this.logreg.userUID);
@@ -42,10 +42,13 @@ export class ToDoListComponent implements OnInit {
       }
     });
       this.userServ.userData.subscribe(user => {
-        this.user = user;
+        this._user = user;
       });
    }
 
   ngOnInit() {
+  }
+  get user(){
+    return this._user;
   }
 }
