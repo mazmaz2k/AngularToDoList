@@ -7,14 +7,14 @@
     <form [formGroup]="form" (ngSubmit)="update()">
       <div class="form-group">
         <label for="firstName"> First Name </label>
-        <input type="text" id="firstName" class="form-control" #firstName formControlName="firstName">
+        <input #firstNameInput type="text" id="firstName" class="form-control" formControlName="firstName">
       </div>
       <div class="alert alert-warning" *ngIf="checkValid('firstName')">
         first Name is NOT valid
     </div>
       <div class="form-group">
         <label for="lastName"> Last Name </label>
-        <input type="text" id="lastName" class="form-control" #lastName formControlName="lastName">
+        <input #lastNameInput type="text" id="lastName" class="form-control" formControlName="lastName">
       </div>
       <div class="alert alert-warning" *ngIf="checkValid('lastName')">
         las tName is NOT valid

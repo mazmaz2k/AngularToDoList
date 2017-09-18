@@ -7,15 +7,16 @@ import { Injectable } from '@angular/core';
 export class UsersService {
 
   public userData;
-  constructor(private db: AngularFireDatabase) {
-   }
+  constructor(private db: AngularFireDatabase) {}
 
   addNewUser(user: Users, key: string) {
     this.db.object(`/users/${key}`).set(user);
   }
+
   getUserData(key: string) {
      this.userData = this.db.object(`/users/${key}`);
   }
+
   setUserData(user: Users, key: string) {
     this.db.object(`/users/${key}`).set(user);
   }
