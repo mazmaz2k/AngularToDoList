@@ -19,6 +19,8 @@ import { RoutingModule } from './app-routing.module';
 import { FireBaseModule } from './firebase.module';
 import { AngularMaterialModule } from './angular-material.module';
 
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 /* import Components */
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -62,7 +64,8 @@ import 'rxjs/add/operator/map';
     BrowserAnimationsModule,
     RoutingModule,
     AngularMaterialModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot()
   ],
   providers: [LogRegService, AuthGuard, PushService, UsersService],
   bootstrap: [AppComponent]

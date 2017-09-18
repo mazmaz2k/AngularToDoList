@@ -33,6 +33,7 @@ export class CreateItemComponent implements OnInit {
       date: this.form.controls['date'].value,
       time: this.form.controls['time'].value,
     });
+    console.log(item);
     this.serv.add(item);
     this.form.reset();
     console.log('The item added successfully');
