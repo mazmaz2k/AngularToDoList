@@ -1,8 +1,11 @@
+import { LogRegService } from './../log-reg.service';
+import { UsersService } from './../users/users.service';
 import { PushService } from './../push/push.service';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router, Params, NavigationEnd } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { Users } from '../users';
 
 @Component({
   selector: 'app-to-do-list',
@@ -24,7 +27,13 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 export class ToDoListComponent implements OnInit {
 
   private showHelloMsg: boolean;
-  constructor(private router: Router, private route: ActivatedRoute) {
+  private user = new Users({
+    firstName: '',
+    lastName: '',
+    email: ''
+  });
+  constructor(private router: Router, private route: ActivatedRoute, private userServ: UsersService, private logreg: LogRegService) {
+    this.userServ.getUserData(this.logreg.userUID);
     this.router.events.subscribe(event => {
       if ((<NavigationEnd>event).url === '/list') {
         this.showHelloMsg = true;
@@ -32,7 +41,13 @@ export class ToDoListComponent implements OnInit {
         this.showHelloMsg = false;
       }
     });
+      this.userServ.userData.subscribe(user => {
+        this.user = user;
+      });
+    console.log('constructor');
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('oninit');
+  }
 }

@@ -1,3 +1,4 @@
+import { ShowNamePipe } from './show-name.pipe';
 import { UsersService } from './users/users.service';
 import { ReversePipe } from './reverse.pipe';
 import { ShowAllTasksComponent } from './show-all-tasks/show-all-tasks.component';
@@ -49,7 +50,8 @@ import 'rxjs/add/operator/map';
     MyProfileComponent,
     CreateItemComponent,
     ShowAllTasksComponent,
-    ReversePipe
+    ReversePipe,
+    ShowNamePipe
   ],
   imports: [
     BrowserModule,

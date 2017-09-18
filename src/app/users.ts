@@ -3,9 +3,9 @@ export class Users {
     private lastName: string;
     private email: string;
 
-    constructor(obj) {
-        this.firstName = obj.firstName;
-        this.lastName = obj.lastName;
-        this.email = obj.email;
+    constructor(obj?) {
+        this.firstName = obj.firstName || '';
+        this.lastName = obj.lastName || '';
+        this.email = obj.email || '';
     }
 }

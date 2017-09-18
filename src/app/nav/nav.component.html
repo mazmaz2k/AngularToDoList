@@ -15,29 +15,5 @@
     <li class="nav-item">
       <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['logout']" (click)="logout()">Logout</a>
     </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-
-      <div class="dropdown-menu">
-        <li class="dropdown-item">
-          1
-        </li>
-      </div>
-    </li>
   </ul>
 </nav>
-
-
-<div class="btn-group" dropdown>
-  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-    Button dropdown <span class="caret"></span>
-  </button>
-  <ul *dropdownMenu class="dropdown-menu" role="menu">
-    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-    <li class="divider dropdown-divider"></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-    </li>
-  </ul>
-</div>

@@ -1,3 +1,5 @@
+import { UsersService } from './../users/users.service';
+import { Users } from './../users';
 import { LogRegService } from './../log-reg.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +16,8 @@ export class LoginFormComponent implements OnInit {
   form: FormGroup;
   private logMsg: string;
 
-  constructor(private fb: FormBuilder, private log: LogRegService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private log: LogRegService, private router: Router, private route: ActivatedRoute,
+     private users: UsersService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -30,7 +33,9 @@ export class LoginFormComponent implements OnInit {
     }
     this.log.login(this.form.value.email, this.form.value.password).then(
       success => {
-       this.logMsg = success;
+      // console.log(success);
+      // this.users.getUserData(uid);
+        // this.logMsg = success;
        this.router.navigate(['/list']);
 
       }, error => {
