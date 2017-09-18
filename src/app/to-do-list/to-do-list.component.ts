@@ -3,7 +3,7 @@ import { UsersService } from './../users/users.service';
 import { PushService } from './../push/push.service';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router, Params, NavigationEnd } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { Users } from '../users';
 
@@ -24,14 +24,12 @@ import { Users } from '../users';
   //   ])
   // ]
 })
-export class ToDoListComponent implements OnInit {
+export class ToDoListComponent {
 
   private showHelloMsg: boolean;
-  private _user = new Users({
-    firstName: '',
-    lastName: ''// ,
-    // email: ''
-  });
+  private _user: Observable<any>;
+  private name;
+
   constructor(private router: Router, private route: ActivatedRoute, private userServ: UsersService, private logreg: LogRegService) {
     this.userServ.getUserData(this.logreg.userUID);
     this.router.events.subscribe(event => {
@@ -41,15 +39,12 @@ export class ToDoListComponent implements OnInit {
         this.showHelloMsg = false;
       }
     });
-      this.userServ.userData.subscribe(user => {
-        this._user = user;
+    this._user = this.userServ.userData;
+      this._user.subscribe(user => {
+        this.name = user._firstName;
       });
-    console.log('constructor');
    }
 
-  ngOnInit() {
-    console.log('oninit');
-  }
   get user(){
     return this._user;
   }

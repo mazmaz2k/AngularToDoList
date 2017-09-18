@@ -1,11 +1,14 @@
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { element } from 'protractor';
 import { ToDoListComponent } from './../to-do-list/to-do-list.component';
-import { Component, OnInit, ViewChild , ElementRef} from '@angular/core';
+import { Component, ViewChild , ElementRef, AfterViewInit} from '@angular/core';
 import { UsersService } from './../users/users.service';
 import { LogRegService } from './../log-reg.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Users } from '../users';
+
 
 @Component({
   selector: 'app-my-profile',
@@ -13,39 +16,37 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./my-profile.component.css']
 })
 
-export class MyProfileComponent implements OnInit {
-  form: FormGroup;
-  private _user;
-  @ViewChild('firstName') firstInput: ElementRef;
-  @ViewChild('lastName') lastInput: ElementRef;
+export class MyProfileComponent implements AfterViewInit {
 
-  constructor( private list: ToDoListComponent, private userServ: UsersService, private router: Router , private logreg: LogRegService, 
-    private users: UsersService ) {
-     this.users.getUserData(this.logreg.userUID);
-    this._user = list.user;
-    this.userServ.userData.subscribe(user => {
-      this._user = user;
-      // this.firstInput.nativeElement.value = this._user.firstName;
-      // this.lastInput.nativeElement.value = this._user.lastName;
-      });
-      this.form = new FormGroup({
-        firstName: new FormControl('', Validators.required),
-        lastName: new FormControl('', Validators.required),
-      });
+  @ViewChild('firstNameInput') firstNameInput: ElementRef;
+  @ViewChild('lastNameInput') lastNameInput: ElementRef;
+
+  form: FormGroup = new FormGroup({
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required)
+  });
+  private _user: Observable<{_firstName, _lastName}>;
+
+  constructor( private list: ToDoListComponent, private userServ: UsersService,  private logreg: LogRegService, private router: Router) {
+    this._user = this.userServ.userData;
   }
 
-  ngOnInit() {
-    // console.log(this.user.firstName);
-   // this.firstInput.nativeElement.value = this._user.firstName;
-
+  ngAfterViewInit() {
+    this._user.subscribe(user => {
+       this.firstNameInput.nativeElement.value = user._firstName;
+       this.lastNameInput.nativeElement.value = user._lastName;
+    });
   }
+
   update() {
-    this._user.firstName = this.form.controls['firstName'].value;
-    this._user.lastName = this.form.controls['lastName'].value;
-    // this._user.email = this.form.controls['email'].value;
-    this.users.setUserData(this._user, this.logreg.userUID);
-    this.router.navigate(['list']);
+    const user = new Users({
+      firstName: this.form.controls['firstName'].value === '' ? this.firstNameInput.nativeElement.value : this.form.controls['firstName'].value,
+      lastName: this.form.controls['lastName'].value === '' ? this.lastNameInput.nativeElement.value : this.form.controls['lastName'].value
+    });
+    this.userServ.setUserData(user, this.logreg.userUID);
+    this.router.navigate(['/list']);
   }
+
   checkValid(name) {
     return (this.form.controls[name].invalid && this.form.controls[name].touched);
   }
