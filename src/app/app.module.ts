@@ -4,7 +4,7 @@ import { ReversePipe } from './reverse.pipe';
 import { ShowAllTasksComponent } from './show-all-tasks/show-all-tasks.component';
 import { PushService } from './push/push.service';
 import { CreateItemComponent } from './create-item/create-item.component';
-
+import { ModalModule } from 'ngx-bootstrap';
 /* import Gesture Support */
 import 'hammerjs';
 
@@ -20,6 +20,7 @@ import { FireBaseModule } from './firebase.module';
 import { AngularMaterialModule } from './angular-material.module';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap';
 
 /* import Components */
 import { AppComponent } from './app.component';
@@ -39,6 +40,8 @@ import { AuthGuard } from './AuthGuard.service';
 
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/operator/map';
+import { EditItemComponent } from './edit-item/edit-item.component';
+import { ModalContentComponent } from './modal-content/modal-content.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import 'rxjs/add/operator/map';
     CreateItemComponent,
     ShowAllTasksComponent,
     ReversePipe,
-    ShowNamePipe
+    ShowNamePipe,
+    EditItemComponent,
+    ModalContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,9 @@ import 'rxjs/add/operator/map';
     RoutingModule,
     AngularMaterialModule,
     BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [LogRegService, AuthGuard, PushService, UsersService],
   bootstrap: [AppComponent]

@@ -10,6 +10,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 /* Routers Configurations */
 const routes: Routes = [
@@ -37,7 +38,13 @@ const routes: Routes = [
         },
         {
           path: 'showall',
-          component: ShowAllTasksComponent
+          component: ShowAllTasksComponent,
+          children: [
+            {
+              path: 'edit',
+              component: EditItemComponent
+            }
+          ]
         },
         {
           path: 'my-profile',
