@@ -11,31 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateItemComponent implements OnInit {
 
-  private form: FormGroup;
+  // private form: FormGroup;
   constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService) { }
   public myTime1: Date = new Date();
   ngOnInit() {
-    this.form = this.fb.group({
-      msg: ['', Validators.required],
-      date: ['', Validators.required],
-      time: ['', Validators.required]
-    });
+    // this.form = this.fb.group({
+    //   msg: ['', Validators.required],
+    //   date: ['', Validators.required],
+    //   time: ['', Validators.required]
+    // });
   }
 
-  onSubmit() {
-    if (this.form.invalid) {
-      console.log('the form is invalid');
-      return;
-    }
-    const item = new Item({
-      userUID: this.logReg.userUID,
-      msg: this.form.controls['msg'].value,
-      date: this.form.controls['date'].value.toUTCString(),
-      time: this.form.controls['time'].value
-    });
-    console.log(item);
-    this.serv.add(item);
-    this.form.reset();
-    console.log('The item added successfully');
+  onSubmit(form) {
+    console.log(form);
+     if (form.invalid || form.value.time === '' ||  form.value.time == null) {
+       console.log('the form is invalid');
+       return;
+     }
+     const item = new Item({
+       userUID: this.logReg.userUID,
+       msg: form.value.msg,
+       date: form.value.date.toLocaleDateString(),
+       time: form.value.time.toLocaleTimeString()
+     });
+     console.log(form.value.time);
+     this.serv.add(item);
+     form.reset();
+     console.log('The item added successfully');
   }
 }

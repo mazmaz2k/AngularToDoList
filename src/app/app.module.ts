@@ -20,7 +20,6 @@ import { FireBaseModule } from './firebase.module';
 import { AngularMaterialModule } from './angular-material.module';
 // import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { TimepickerModule } from 'ngx-bootstrap';
 
 /* import Components */
 import { AppComponent } from './app.component';
@@ -31,7 +30,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ToDoItemComponent } from './to-do-item/to-do-item.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TimepickerModule } from 'ngx-bootstrap';
 
 /* import Services */
 import { LogRegService } from './log-reg.service';

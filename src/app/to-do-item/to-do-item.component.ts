@@ -12,27 +12,27 @@ import { ModalContentComponent } from '../modal-content/modal-content.component'
 })
 export class ToDoItemComponent implements OnInit {
 
-  @Input() item;
-  modalRef: BsModalRef;
+   @Input() item;
+   modalRef: BsModalRef;
 
-  constructor(private push: PushService,
-              private router: Router,
-              private route: ActivatedRoute,
-              private modalService: BsModalService) { }
+   constructor(private push: PushService,
+               private router: Router,
+               private route: ActivatedRoute,
+               private modalService: BsModalService) { }
 
-  ngOnInit() {
-  }
+   ngOnInit() {
+   }
 
-  del(item) {
-    this.modalRef.hide();
-    this.push.delete(item);
-  }
+   del(item) {
+     this.modalRef.hide();
+     this.push.delete(item);
+   }
 
-  edit(item) {
-    this.router.navigate(['edit'], {relativeTo: this.route});
-  }
+   edit(item) {
+     this.router.navigate(['edit'], {relativeTo: this.route});
+   }
 
-  public openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
+   public openModal(template: TemplateRef<any>) {
+     this.modalRef = this.modalService.show(template);
+   }
 }
