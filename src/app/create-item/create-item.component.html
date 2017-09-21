@@ -12,16 +12,16 @@
     <div class="form-group"> 
         <input type="text"  placeholder="Date Picker" bsDatepicker formControlName="date">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <md-input-container>
         <input mdInput type="time" formControlName="time" placeholder="Deadline">
       </md-input-container>
 
-    </div>
+    </div> -->
+    <timepicker [(ngModel)]="myTime" ></timepicker>
     <div class="form-group">
       <button md-raised-button color="primary" type="submit">Add</button>
     </div>
   </form>
-  <timepicker [(ngModel)]="mytime"></timepicker>
-  <pre class="alert alert-info">Time is: {{mytime}}</pre>
+  
 </md-card>
