@@ -22,5 +22,4 @@ export class ShowAllTasksComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
