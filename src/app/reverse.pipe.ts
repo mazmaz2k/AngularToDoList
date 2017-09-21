@@ -14,11 +14,11 @@ export class ReversePipe implements PipeTransform {
             const right = new Date(b.date);
             console.log('left', left);
             console.log('right', right);
-            return  left > right ? 1 : -1 ;
+            return  right > left ? 1 : -1 ;
 
         });
 
-        return array;
+        return array ;
 
 
     }
