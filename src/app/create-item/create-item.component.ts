@@ -30,7 +30,7 @@ export class CreateItemComponent implements OnInit {
     const item = new Item({
       userUID: this.logReg.userUID,
       msg: this.form.controls['msg'].value,
-      date: this.form.controls['date'].value,
+      date: this.form.controls['date'].value.toUTCString(),
       time: this.form.controls['time'].value,
     });
     console.log(item);

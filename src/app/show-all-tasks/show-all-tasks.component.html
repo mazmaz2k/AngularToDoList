@@ -1,6 +1,9 @@
 <h2> My To-Do List </h2>
 <hr/>
-<div *ngFor="let item of push.items | async | reverse">
-    <app-to-do-item [item]="item"></app-to-do-item>
-    <hr/>
+<router-outlet></router-outlet>
+<div *ngIf="!editable">
+    <div *ngFor="let item of push.items | async | reverse">
+        <app-to-do-item [item]="item"></app-to-do-item>
+        <hr/>
+    </div>
 </div>

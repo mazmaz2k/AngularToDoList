@@ -1,5 +1,6 @@
 import { PushService } from './../push/push.service';
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-show-all-tasks',
@@ -8,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowAllTasksComponent implements OnInit {
 
-  constructor(private push: PushService) { }
+  editable = false;
+  constructor(private push: PushService, private router: Router) {
+    this.router.events.subscribe(event => {
+      if ((<NavigationEnd>event).url === '/list/showall/edit') {
+        this.editable = true;
+      } else {
+        this.editable = false;
+      }
+    });
+  }
 
   ngOnInit() {
   }

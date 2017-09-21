@@ -14,4 +14,8 @@ export class PushService {
     this.items.push(obj);
   }
 
+  delete(obj) {
+    this.items.remove(obj);
+  }
+
 }
