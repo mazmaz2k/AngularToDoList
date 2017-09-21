@@ -11,19 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateItemComponent implements OnInit {
 
-  // private form: FormGroup;
   constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService) { }
-  public myTime1: Date = new Date();
-  ngOnInit() {
-    // this.form = this.fb.group({
-    //   msg: ['', Validators.required],
-    //   date: ['', Validators.required],
-    //   time: ['', Validators.required]
-    // });
-  }
+
+  ngOnInit() {}
 
   onSubmit(form) {
-    console.log(form);
      if (form.invalid || form.value.time === '' ||  form.value.time == null) {
        console.log('the form is invalid');
        return;
@@ -31,10 +23,9 @@ export class CreateItemComponent implements OnInit {
      const item = new Item({
        userUID: this.logReg.userUID,
        msg: form.value.msg,
-       date: form.value.date.toLocaleDateString(),
-       time: form.value.time.toLocaleTimeString()
+       date: form.value.date.toLocaleDateString('en-GB'),
+       time: form.value.time.toLocaleTimeString('en-US', { hour12: false })
      });
-     console.log(form.value.time);
      this.serv.add(item);
      form.reset();
      console.log('The item added successfully');
