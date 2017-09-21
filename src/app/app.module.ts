@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutingModule } from './app-routing.module';
 import { FireBaseModule } from './firebase.module';
 import { AngularMaterialModule } from './angular-material.module';
-
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap';
 
@@ -71,8 +71,12 @@ import { ModalContentComponent } from './modal-content/modal-content.component';
     AngularMaterialModule,
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
+<<<<<<< HEAD
+    TimepickerModule.forRoot()
+=======
     TimepickerModule.forRoot(),
     ModalModule.forRoot()
+>>>>>>> cc571ada8750046654636649949bdbab51920cce
   ],
   providers: [LogRegService, AuthGuard, PushService, UsersService],
   bootstrap: [AppComponent]
