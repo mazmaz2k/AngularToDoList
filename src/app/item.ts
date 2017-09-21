@@ -1,7 +1,7 @@
 export class Item {
     private userUID: string;
     private msg: string;
-    private date: Date;
+    private date: string;
     private time: string;
     constructor(obj) {
         this.msg = obj.msg;

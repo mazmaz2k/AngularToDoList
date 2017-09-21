@@ -3,25 +3,21 @@
 </h1>
 <hr/>
 <md-card fxLayout="row">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="form-group">
       <md-input-container>
-        <input mdInput type="text" formControlName="msg" placeholder="What to do?">
+        <input mdInput type="text" name="msg" ngModel placeholder="What to do?" required>
       </md-input-container>
     </div>
     <div class="form-group"> 
-        <input type="text"  placeholder="Date Picker" bsDatepicker formControlName="date">
+        <input type="text" name="date" placeholder="Date Picker" bsDatepicker ngModel required>
     </div>
     <div class="form-group">
-      <md-input-container>
-        <input mdInput type="time" formControlName="time" placeholder="Deadline">
-      </md-input-container>
+          <timepicker name="time" ngModel [showSeconds]="showSec"></timepicker>
 
     </div>
     <div class="form-group">
       <button md-raised-button color="primary" type="submit">Add</button>
     </div>
   </form>
-  <timepicker [(ngModel)]="mytime"></timepicker>
-  <pre class="alert alert-info">Time is: {{mytime}}</pre>
 </md-card>
