@@ -13,7 +13,7 @@ export class CreateItemComponent implements OnInit {
 
   private form: FormGroup;
   constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService) { }
-  public myTime: Date = new Date();
+  public myTime1: Date = new Date();
   ngOnInit() {
     this.form = this.fb.group({
       msg: ['', Validators.required],
@@ -31,9 +31,8 @@ export class CreateItemComponent implements OnInit {
       userUID: this.logReg.userUID,
       msg: this.form.controls['msg'].value,
       date: this.form.controls['date'].value.toUTCString(),
-      time: this.myTime.toLocaleTimeString()
+      time: this.form.controls['time'].value
     });
-    console.log(this.myTime);
     console.log(item);
     this.serv.add(item);
     this.form.reset();
