@@ -30,8 +30,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ToDoItemComponent } from './to-do-item/to-do-item.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
-import { BsDropdownModule, TimepickerModule } from 'ngx-bootstrap';
-
+import { BsDropdownModule } from 'ngx-bootstrap';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 /* import Services */
 import { LogRegService } from './log-reg.service';
 import { AuthGuard } from './AuthGuard.service';

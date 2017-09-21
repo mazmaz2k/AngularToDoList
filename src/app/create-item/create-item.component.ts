@@ -3,7 +3,8 @@ import { LogRegService } from './../log-reg.service';
 import { Item } from './../item';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-
+// import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { TimepickerModule } from 'ngx-bootstrap';
 @Component({
   selector: 'app-create-item',
   templateUrl: './create-item.component.html',
