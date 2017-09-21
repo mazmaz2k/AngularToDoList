@@ -13,7 +13,7 @@ export class CreateItemComponent implements OnInit {
 
   // private form: FormGroup;
   constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService) { }
-
+  public myTime: Date = new Date();
   ngOnInit() {
     // this.form = this.fb.group({
     //   msg: ['', Validators.required],
