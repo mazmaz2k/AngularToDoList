@@ -48,7 +48,7 @@ export class RegistrationComponent implements OnInit {
 
   checkPassword(pass1, pass2) {
     // console.log('dasdsa', pass1.value);
-    //return (pass1==p);
+    // return (pass1==p);
     if ( !(pass1.value === pass2.value)) {
         this.form.controls['repeatPassword'].setErrors({notMatch: true}) ;
         return true;

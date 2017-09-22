@@ -1,6 +1,7 @@
+import { EditItemComponent } from './../edit-item/edit-item.component';
 import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 import { PushService } from '../push/push.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { ModalContentComponent } from '../modal-content/modal-content.component';
@@ -14,7 +15,6 @@ export class ToDoItemComponent implements OnInit {
 
    @Input() item;
    modalRef: BsModalRef;
-
    constructor(private push: PushService,
                private router: Router,
                private route: ActivatedRoute,
@@ -29,7 +29,7 @@ export class ToDoItemComponent implements OnInit {
    }
 
    edit(item) {
-     this.router.navigate(['edit'], {relativeTo: this.route});
+     this.router.navigate(['edit'], {relativeTo: this.route, queryParams: {'item' : item}});
    }
 
    public openModal(template: TemplateRef<any>) {
