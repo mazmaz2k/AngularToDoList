@@ -29,7 +29,7 @@ export class ToDoItemComponent implements OnInit {
    }
 
    edit(item) {
-     this.router.navigate(['edit'], {relativeTo: this.route, queryParams: {'item' : item}});
+     this.router.navigate(['edit'], {relativeTo: this.route, queryParams: {item : item} } );
    }
 
    public openModal(template: TemplateRef<any>) {

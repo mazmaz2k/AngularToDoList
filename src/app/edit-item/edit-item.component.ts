@@ -28,7 +28,7 @@ export class EditItemComponent implements OnInit {
   constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService, private router: ActivatedRoute) {
     this.router.queryParams.subscribe(params => {
       this.item1 = params['item'];
-      // console.log(params['item']);
+       console.log(params);
     });
 
 
