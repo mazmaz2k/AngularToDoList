@@ -5,6 +5,9 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { ModalContentComponent } from '../modal-content/modal-content.component';
+import { Item } from '../item';
+import { LogRegService } from './../log-reg.service';
+
 
 @Component({
   selector: 'app-to-do-item',
@@ -18,7 +21,8 @@ export class ToDoItemComponent implements OnInit {
    constructor(private push: PushService,
                private router: Router,
                private route: ActivatedRoute,
-               private modalService: BsModalService) { }
+               private modalService: BsModalService,
+               private logReg: LogRegService) { }
 
    ngOnInit() {
    }
@@ -28,11 +32,26 @@ export class ToDoItemComponent implements OnInit {
      this.push.delete(item);
    }
 
-   edit(item) {
-     this.router.navigate(['edit'], {relativeTo: this.route, queryParams: {item : item} } );
+   edit(item: Item) {
+     item.isEditable = true;
    }
 
    public openModal(template: TemplateRef<any>) {
      this.modalRef = this.modalService.show(template);
+   }
+
+   cancel(item) {
+     item.isEditable = false;
+   }
+
+   save(form, exItem) {
+    const item = new Item({
+      userUID: this.logReg.userUID,
+      msg: form.value.msg,
+      date: form.value.date,
+      time: form.value.time
+    });
+    this.push.delete(exItem);
+    this.push.add(item);
    }
 }

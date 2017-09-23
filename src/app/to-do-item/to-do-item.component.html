@@ -1,8 +1,33 @@
-Tasks: {{ item.msg }} 
+<div *ngIf="item.isEditable;else NoEditable">
+  <form #f="ngForm" (ngSubmit)="save(f, item)">
+    Task:
+    <md-input-container>
+      <input mdInput type="text" name="msg" [ngModel]="item.msg" required>
+    </md-input-container>
+    <br/>
+    When:
+    <md-input-container>
+      <input mdInput type="text" name="date" [ngModel]="item.date" required>
+    </md-input-container>
+    <br/>
+    Hour:
+    <md-input-container>
+      <input mdInput type="text" name="time" [ngModel]="item.time" required>
+    </md-input-container>
+
+    <div>
+      <input type="submit" class="btn btn-primary text-right" value="Save"> 
+      <button class="btn btn-danger text-right" (click)="cancel(item)"> Cancel </button>
+    </div>
+  </form>
+</div>
+
+<ng-template #NoEditable>
+Task: {{ item.msg }} 
 <br/>
 When: {{ item.date }}
 <br/>
-hour: {{ item.time }}
+Hour: {{ item.time }}
 
 <div>
     <button class="btn btn-primary text-right" (click)="edit(item)"> Edit </button> 
@@ -20,4 +45,6 @@ hour: {{ item.time }}
           <button class="btn btn-danger" (click)="del(item)"> Yes </button>
           <button class="btn btn-success" (click)="modalRef.hide()"> No </button>
         </div>
+</ng-template>
+
 </ng-template>
