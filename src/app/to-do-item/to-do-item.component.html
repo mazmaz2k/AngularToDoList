@@ -7,12 +7,12 @@
     <br/>
     When:
     <md-input-container>
-      <input mdInput type="text" name="date" [ngModel]="item.date" required>
+      <input mdInput type="text" name="date" [bsConfig]="{dateInputFormat: 'DD-MM-YYYY'}" bsDatepicker [ngModel]="item.date" required>    
     </md-input-container>
     <br/>
     Hour:
     <md-input-container>
-      <input mdInput type="text" name="time" [ngModel]="item.time" required>
+      <input mdInput type="text" name="time" #time [ngModel]="item.time" required pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}">
     </md-input-container>
 
     <div>
