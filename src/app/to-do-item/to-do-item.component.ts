@@ -48,10 +48,11 @@ export class ToDoItemComponent implements OnInit {
     const item = new Item({
       userUID: this.logReg.userUID,
       msg: form.value.msg,
-      date: form.value.date,
+      date: form.value.date.toLocaleDateString('en-GB') + '',
       time: form.value.time
     });
     this.push.delete(exItem);
     this.push.add(item);
    }
+
 }
