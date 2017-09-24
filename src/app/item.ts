@@ -1,7 +1,7 @@
 export class Item {
     private userUID: string;
     private msg: string;
-    private date: Date;
+    public date: Date;
     private time: Date;
     public isEditable: boolean;
     constructor(obj) {
@@ -11,17 +11,17 @@ export class Item {
         this.userUID = obj.userUID;
         this.isEditable = false;
     }
-    getUserId(obj) {
-        return obj.userUID;
+    get getUserId() {
+        return this.userUID;
     }
-    getMsg(obj) {
-        return obj.msg;
+    get getMsg() {
+        return this.msg;
     }
-    getDate(obj) {
-        return obj.date;
+    get getDate() {
+        return this.date;
     }
-    getTime(obj) {
-        return obj.time;
+    get getTime() {
+        return this.time;
     }
     set setIsEditable(val) {
         this.isEditable = val;

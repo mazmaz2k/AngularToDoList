@@ -18,6 +18,7 @@ export class ToDoItemComponent implements OnInit {
 
    @Input() item;
    modalRef: BsModalRef;
+   _bsValue: Date;
    constructor(private push: PushService,
                private router: Router,
                private route: ActivatedRoute,
@@ -27,13 +28,25 @@ export class ToDoItemComponent implements OnInit {
    ngOnInit() {
    }
 
+  //  get bsValue(): Date {
+  //    return this._bsValue;
+  //  }
+  //  set bsValue(v: Date) {
+  //    console.log(v);
+  //    this._bsValue = v;
+  //  }
    del(item) {
      this.modalRef.hide();
      this.push.delete(item);
    }
 
    edit(item: Item) {
-     item.isEditable = true;
+    const temp = ('' + item.date).split('/');
+    // console.log(temp);
+    const temp1 = temp[2] + '/' + temp[1] + '/' + temp[0];
+    this._bsValue = new Date(temp1);
+    // console.log(item.date);
+    item.isEditable = true;
    }
 
    public openModal(template: TemplateRef<any>) {
