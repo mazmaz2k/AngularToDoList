@@ -58,8 +58,7 @@ export class ToDoItemComponent implements OnInit {
     this.push.add(item);
    }
 
-   checkTime(time) {
-     console.log(time);
-     return true;
+   debug(form) {
+     console.log(form.controls['time'].invalid);
    }
 }

@@ -1,0 +1,12 @@
+.glyphicon.glyphicon-remove {
+    display: inline-block;
+    color: red;
+}
+
+#time {
+    display: inline-block;
+}
+
+.glyphicon.glyphicon-ok {
+    color:green;
+}

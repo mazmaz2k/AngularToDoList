@@ -4,17 +4,26 @@
     <md-input-container>
       <input mdInput type="text" name="msg" [ngModel]="item.msg" required>
     </md-input-container>
+    <div *ngIf="f.controls['msg'] && f.controls['msg'].invalid; then INVALID else VALID"></div>
     <br/>
     When:
     <md-input-container>
-      <input mdInput type="text" name="date" [bsConfig]="{dateInputFormat: 'DD-MM-YYYY'}" bsDatepicker [ngModel]="item.date" required>    
+      <input mdInput type="text" name="date" [bsConfig]="{dateInputFormat: 'DD-MM-YYYY'}" bsDatepicker ngModel required>    
     </md-input-container>
+    <div *ngIf="f.controls['date'] && f.controls['date'].invalid; then INVALID else VALID"></div>
     <br/>
     Hour:
     <md-input-container>
-      <input mdInput type="text" name="time" #time [ngModel]="item.time" required pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}">
+      <input mdInput type="text" id="time" name="time" #time [ngModel]="item.time" required pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){1}">
     </md-input-container>
-
+    <div *ngIf="f.controls['time'] && f.controls['time'].invalid; then INVALID else VALID"></div>
+    <ng-template #INVALID>
+      <span class="glyphicon glyphicon-remove"></span>
+    </ng-template>
+    <ng-template #VALID>
+      <span class="glyphicon glyphicon-ok"></span>
+    </ng-template>
+    <!-- <button (click)="debug(f)">Debug</button> -->
     <div>
       <input type="submit" class="btn btn-primary text-right" value="Save"> 
       <button class="btn btn-danger text-right" (click)="cancel(item)"> Cancel </button>
