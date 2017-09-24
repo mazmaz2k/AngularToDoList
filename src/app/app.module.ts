@@ -41,6 +41,7 @@ import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/operator/map';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { ModalContentComponent } from './modal-content/modal-content.component';
+import { MessagingService } from './messaging.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import { ModalContentComponent } from './modal-content/modal-content.component';
     TimepickerModule.forRoot(),
     ModalModule.forRoot()
   ],
-  providers: [LogRegService, AuthGuard, PushService, UsersService],
+  providers: [LogRegService, AuthGuard, PushService, UsersService, MessagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
