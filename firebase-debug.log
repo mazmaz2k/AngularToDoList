@@ -1,0 +1,470 @@
+[debug] [2017-09-25T18:44:26.824Z] ----------------------------------------------------------------------
+[debug] [2017-09-25T18:44:26.831Z] Command:       C:\Program Files\NodeJS\node.exe C:\Users\Alex\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --only functions
+[debug] [2017-09-25T18:44:26.835Z] CLI Version:   3.12.0
+[debug] [2017-09-25T18:44:26.835Z] Platform:      win32
+[debug] [2017-09-25T18:44:26.835Z] Node Version:  v6.11.3
+[debug] [2017-09-25T18:44:26.837Z] Time:          Mon Sep 25 2017 21:44:26 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:26.838Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-25T18:44:26.867Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-25T18:44:26.867Z] > authorizing via signed-in user
+[debug] [2017-09-25T18:44:26.870Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/todoapplicatoin  
+ Mon Sep 25 2017 21:44:26 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:27.821Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:27.825Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/todoapplicatoin/tokens  
+ Mon Sep 25 2017 21:44:27 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:28.637Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'todoapplicatoin'...
+[info] 
+[info] i  deploying functions
+[debug] [2017-09-25T18:44:30.702Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~5.2.1",
+    "firebase-functions": "^0.6.2"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-09-25T18:44:30.706Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/todoapplicatoin?view=CONSUMER_VIEW  
+ Mon Sep 25 2017 21:44:30 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:30.707Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/todoapplicatoin?view=CONSUMER_VIEW  
+ Mon Sep 25 2017 21:44:30 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:32.032Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2017-09-25T18:44:32.133Z] <<< HTTP RESPONSE 200
+[info] +  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-09-25T18:44:32.135Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/todoapplicatoin  
+ Mon Sep 25 2017 21:44:32 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:32.135Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/todoapplicatoin/apiKeys  
+ Mon Sep 25 2017 21:44:32 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:33.231Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:33.302Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2017-09-25T18:44:39.646Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/todoapplicatoin/configs  
+ Mon Sep 25 2017 21:44:39 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:40.147Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (15.23 KB) for uploading
+[debug] [2017-09-25T18:44:46.431Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.todoapplicatoin.appspot.com  
+ Mon Sep 25 2017 21:44:46 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:46.941Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:46.942Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.todoapplicatoin.appspot.com/o?uploadType=media&name=firebase-functions-source ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 15597,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     defaultEncoding: 'utf8',
+     ranOut: false,
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: 'C:\\Users\\Alex\\AppData\\Local\\Temp\\firebase-functions-7072Qi8CZr7n1rzX.zip',
+  fd: 5,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: undefined,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 15597 } 
+ Mon Sep 25 2017 21:44:46 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:47.623Z] <<< HTTP RESPONSE 200
+[info] +  functions: functions folder uploaded successfully
+[info] i  starting release process (may take several minutes)...
+[debug] [2017-09-25T18:44:47.626Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/projects/todoapplicatoin/locations/us-central1/functions  
+ Mon Sep 25 2017 21:44:47 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:48.749Z] <<< HTTP RESPONSE 200
+[info] i  functions: updating function fcmSend...
+[debug] [2017-09-25T18:44:48.754Z] Trigger is: 
+[info] i  functions: updating function addWelcomeMessages...
+[debug] [2017-09-25T18:44:48.756Z] Trigger is: 
+[debug] [2017-09-25T18:44:48.756Z] >>> HTTP REQUEST PUT https://cloudfunctions.googleapis.com/v1beta2/projects/todoapplicatoin/locations/us-central1/functions/fcmSend { sourceArchiveUrl: 'gs://staging.todoapplicatoin.appspot.com/firebase-functions-source',
+  name: 'projects/todoapplicatoin/locations/us-central1/functions/fcmSend',
+  entryPoint: 'fcmSend',
+  timeout: '60s',
+  availableMemoryMb: 256,
+  eventTrigger: 
+   { resource: 'projects/_/instances/todoapplicatoin/refs/items/{userUID}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Mon Sep 25 2017 21:44:48 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:48.757Z] >>> HTTP REQUEST PUT https://cloudfunctions.googleapis.com/v1beta2/projects/todoapplicatoin/locations/us-central1/functions/addWelcomeMessages { sourceArchiveUrl: 'gs://staging.todoapplicatoin.appspot.com/firebase-functions-source',
+  name: 'projects/todoapplicatoin/locations/us-central1/functions/addWelcomeMessages',
+  entryPoint: 'addWelcomeMessages',
+  timeout: '60s',
+  availableMemoryMb: 256,
+  eventTrigger: 
+   { resource: 'projects/todoapplicatoin',
+     eventType: 'providers/firebase.auth/eventTypes/user.create' } } 
+ Mon Sep 25 2017 21:44:48 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:49.729Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:49.757Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:49.761Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/projects/todoapplicatoin/locations/us-central1/functions  
+ Mon Sep 25 2017 21:44:49 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:49.762Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:44:49 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:49.762Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:44:49 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:50.709Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:50.741Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:50.744Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:50.745Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:44:50.745Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:44:55.747Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:44:55 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:55.747Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:44:55 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:44:56.672Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:56.673Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:44:56.673Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:44:56.673Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:01.675Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:01 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:01.676Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:01 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:02.607Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:02.626Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:02.626Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:02.626Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:07.628Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:07 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:07.629Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:07 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:08.549Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:08.557Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:08.557Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:08.558Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:13.558Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:13 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:13.558Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:13 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:14.533Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:14.542Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:14.542Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:14.542Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:19.543Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:19 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:19.543Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:19 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:20.470Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:20.470Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:20.471Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:20.471Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:25.474Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:25 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:25.475Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:25 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:26.396Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:26.407Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:26.407Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:26.407Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:31.408Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:31 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:31.409Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:31 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:32.329Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:32.342Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:32.342Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:32.342Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:37.343Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:37 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:37.344Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:37 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:38.244Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:38.255Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:38.255Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:38.255Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:43.260Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:43 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:43.260Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:43 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:44.205Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:44.246Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:44.246Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:44.247Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:49.248Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:49 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:49.248Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:49 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:50.169Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:50.172Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:50.172Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:50.173Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:45:55.174Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:45:55 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:55.174Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:45:55 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:45:56.093Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:56.094Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:45:56.095Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:45:56.095Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:46:01.096Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:01 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:01.096Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:46:01 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:02.045Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:02.049Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:02.049Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:46:02.050Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:46:07.052Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:07 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:07.053Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:46:07 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:07.953Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:07.965Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:07.965Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:46:07.965Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:46:12.969Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:12 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:12.969Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:46:12 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:13.896Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:13.907Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:13.907Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:46:13.907Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:46:18.908Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:18 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:18.909Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:46:18 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:19.808Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:19.832Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:19.832Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:46:19.832Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:46:24.834Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:24 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:24.834Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:46:24 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:25.803Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:25.808Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:25.808Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:46:25.809Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:46:30.809Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:30 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:30.810Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:46:30 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:31.726Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:31.735Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:31.735Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:46:31.735Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:46:36.737Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:36 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:36.738Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:46:36 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:37.648Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:37.666Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:37.666Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:46:37.666Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is not done.
+[debug] [2017-09-25T18:46:42.667Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:42 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:42.668Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ  
+ Mon Sep 25 2017 21:46:42 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:43.626Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:43.630Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:43.631Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:46:43.631Z] [functions] operation poll: addWelcomeMessages: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy94YUVheGVacjIyWQ is done.
+[debug] [2017-09-25T18:46:48.632Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:48 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:49.569Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:49.569Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:46:54.569Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c  
+ Mon Sep 25 2017 21:46:54 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:46:55.496Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:46:55.496Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvOG1hdFBuczI4Y3c is not done.
+[debug] [2017-09-25T18:47:03.876Z] ----------------------------------------------------------------------
+[debug] [2017-09-25T18:47:03.879Z] Command:       C:\Program Files\NodeJS\node.exe C:\Users\Alex\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy --only functions
+[debug] [2017-09-25T18:47:03.880Z] CLI Version:   3.12.0
+[debug] [2017-09-25T18:47:03.880Z] Platform:      win32
+[debug] [2017-09-25T18:47:03.880Z] Node Version:  v6.11.3
+[debug] [2017-09-25T18:47:03.881Z] Time:          Mon Sep 25 2017 21:47:03 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:03.881Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-25T18:47:03.893Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-25T18:47:03.893Z] > authorizing via signed-in user
+[debug] [2017-09-25T18:47:03.896Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/todoapplicatoin  
+ Mon Sep 25 2017 21:47:03 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:05.422Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:05.423Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/todoapplicatoin/tokens  
+ Mon Sep 25 2017 21:47:05 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:06.208Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'todoapplicatoin'...
+[info] 
+[info] i  deploying functions
+[debug] [2017-09-25T18:47:08.290Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~5.2.1",
+    "firebase-functions": "^0.6.2"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-09-25T18:47:08.292Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/todoapplicatoin?view=CONSUMER_VIEW  
+ Mon Sep 25 2017 21:47:08 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:08.293Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/todoapplicatoin?view=CONSUMER_VIEW  
+ Mon Sep 25 2017 21:47:08 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:09.716Z] <<< HTTP RESPONSE 200
+[info] +  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-09-25T18:47:09.759Z] <<< HTTP RESPONSE 200
+[info] +  functions: all necessary APIs are enabled
+[debug] [2017-09-25T18:47:09.760Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/todoapplicatoin  
+ Mon Sep 25 2017 21:47:09 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:09.761Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/todoapplicatoin/apiKeys  
+ Mon Sep 25 2017 21:47:09 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:10.896Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:10.982Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2017-09-25T18:47:16.537Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/todoapplicatoin/configs  
+ Mon Sep 25 2017 21:47:16 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:17.593Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (15.24 KB) for uploading
+[debug] [2017-09-25T18:47:23.344Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.todoapplicatoin.appspot.com  
+ Mon Sep 25 2017 21:47:23 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:23.882Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:23.883Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.todoapplicatoin.appspot.com/o?uploadType=media&name=firebase-functions-source ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 15605,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     defaultEncoding: 'utf8',
+     ranOut: false,
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: 'C:\\Users\\Alex\\AppData\\Local\\Temp\\firebase-functions-5404bTx3uopUPiEs.zip',
+  fd: 5,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: undefined,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 15605 } 
+ Mon Sep 25 2017 21:47:23 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:24.565Z] <<< HTTP RESPONSE 200
+[info] +  functions: functions folder uploaded successfully
+[info] i  starting release process (may take several minutes)...
+[debug] [2017-09-25T18:47:24.572Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/projects/todoapplicatoin/locations/us-central1/functions  
+ Mon Sep 25 2017 21:47:24 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:25.697Z] <<< HTTP RESPONSE 200
+[info] i  functions: deleting function addWelcomeMessages...
+[info] i  functions: updating function fcmSend...
+[debug] [2017-09-25T18:47:25.702Z] Trigger is: 
+[debug] [2017-09-25T18:47:25.702Z] >>> HTTP REQUEST DELETE https://cloudfunctions.googleapis.com/v1beta2/projects/todoapplicatoin/locations/us-central1/functions/addWelcomeMessages  
+ Mon Sep 25 2017 21:47:25 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:25.703Z] >>> HTTP REQUEST PUT https://cloudfunctions.googleapis.com/v1beta2/projects/todoapplicatoin/locations/us-central1/functions/fcmSend { sourceArchiveUrl: 'gs://staging.todoapplicatoin.appspot.com/firebase-functions-source',
+  name: 'projects/todoapplicatoin/locations/us-central1/functions/fcmSend',
+  entryPoint: 'fcmSend',
+  timeout: '60s',
+  availableMemoryMb: 256,
+  eventTrigger: 
+   { resource: 'projects/_/instances/todoapplicatoin/refs/items/{userUID}',
+     eventType: 'providers/google.firebase.database/eventTypes/ref.create' } } 
+ Mon Sep 25 2017 21:47:25 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:26.681Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:26.702Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:26.705Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/projects/todoapplicatoin/locations/us-central1/functions  
+ Mon Sep 25 2017 21:47:26 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:26.706Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU  
+ Mon Sep 25 2017 21:47:26 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:26.707Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA  
+ Mon Sep 25 2017 21:47:26 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:27.186Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:27.689Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:27.690Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU is not done.
+[debug] [2017-09-25T18:47:27.690Z] [functions] operation poll: addWelcomeMessages: delete operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA is not done.
+[debug] [2017-09-25T18:47:27.706Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:32.690Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU  
+ Mon Sep 25 2017 21:47:32 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:32.691Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA  
+ Mon Sep 25 2017 21:47:32 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:33.642Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:33.656Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:33.656Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU is not done.
+[debug] [2017-09-25T18:47:33.656Z] [functions] operation poll: addWelcomeMessages: delete operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA is not done.
+[debug] [2017-09-25T18:47:38.657Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU  
+ Mon Sep 25 2017 21:47:38 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:38.657Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA  
+ Mon Sep 25 2017 21:47:38 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:39.563Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:39.570Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:39.571Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU is not done.
+[debug] [2017-09-25T18:47:39.571Z] [functions] operation poll: addWelcomeMessages: delete operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA is not done.
+[debug] [2017-09-25T18:47:44.574Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU  
+ Mon Sep 25 2017 21:47:44 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:44.575Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA  
+ Mon Sep 25 2017 21:47:44 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:45.497Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:45.506Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:45.506Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU is not done.
+[debug] [2017-09-25T18:47:45.506Z] [functions] operation poll: addWelcomeMessages: delete operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA is not done.
+[debug] [2017-09-25T18:47:50.508Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU  
+ Mon Sep 25 2017 21:47:50 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:50.509Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA  
+ Mon Sep 25 2017 21:47:50 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:50.907Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:51.445Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:51.445Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU is not done.
+[debug] [2017-09-25T18:47:51.445Z] [functions] operation poll: addWelcomeMessages: delete operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA is not done.
+[debug] [2017-09-25T18:47:56.447Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU  
+ Mon Sep 25 2017 21:47:56 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:56.448Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA  
+ Mon Sep 25 2017 21:47:56 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:47:57.660Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:58.344Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:47:58.345Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU is not done.
+[debug] [2017-09-25T18:47:58.345Z] [functions] operation poll: addWelcomeMessages: delete operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA is not done.
+[debug] [2017-09-25T18:48:03.347Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU  
+ Mon Sep 25 2017 21:48:03 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:48:03.347Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA  
+ Mon Sep 25 2017 21:48:03 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:48:03.749Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:48:04.268Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:48:04.269Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU is not done.
+[debug] [2017-09-25T18:48:04.269Z] [functions] operation poll: addWelcomeMessages: delete operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2FkZFdlbGNvbWVNZXNzYWdlcy9XMlJzV0Y2WnVROA is done.
+[debug] [2017-09-25T18:48:09.270Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1beta2/operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU  
+ Mon Sep 25 2017 21:48:09 GMT+0300 (Jerusalem Summer Time)
+[debug] [2017-09-25T18:48:10.209Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-25T18:48:10.209Z] [functions] operation poll: fcmSend: update operations/dG9kb2FwcGxpY2F0b2luL3VzLWNlbnRyYWwxL2ZjbVNlbmQvSjdxMHAzSG9OdlU is not done.
