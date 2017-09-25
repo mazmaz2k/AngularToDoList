@@ -1,9 +1,9 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
-console.log('fshi hi #$#$%homo');
+console.log('1-before on create');
 exports.fcmSend = functions.database.ref('/items').onCreate(event => {
-  console.log('fsdjf=alex 5%$$#%%%$#$%$#$#$#$%homo');
+  console.log('2- in on create');
   const message = event.data.val()
   const userId  = event.params.userId
   const payload = {
@@ -26,6 +26,7 @@ exports.fcmSend = functions.database.ref('/items').onCreate(event => {
         .catch(err => {
           console.log(err);
         });
+        
 });
 
 // // Create and Deploy Your First Cloud Functions
