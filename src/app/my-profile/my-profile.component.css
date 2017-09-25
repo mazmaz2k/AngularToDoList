@@ -2,3 +2,24 @@ md-card {
     margin: 0 auto;
     width: 80%;
 }
+
+.glyphicon.glyphicon-remove {
+    display: inline-block;
+    color: red;
+}
+
+.glyphicon.glyphicon-ok {
+    color:green;
+}
+
+#firstName {
+    display: inline-block;
+}
+
+#lastName {
+    display: inline-block;
+}
+
+input{
+    width:70%;
+}
