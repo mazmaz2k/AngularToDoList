@@ -14,9 +14,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginFormComponent implements OnInit {
 
   form: FormGroup;
-  public logMsg: string;
+  private _logMsg: string;
 
-  constructor(private fb: FormBuilder, public log: LogRegService, private router: Router, private route: ActivatedRoute,
+  constructor(private fb: FormBuilder, private _log: LogRegService, private router: Router, private route: ActivatedRoute,
      private users: UsersService) { }
 
   ngOnInit() {
@@ -28,15 +28,22 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.invalid) {
-      this.logMsg = 'Please fill all the fields';
+      this._logMsg = 'Please fill all the fields';
       return null;
     }
-    this.log.login(this.form.value.email, this.form.value.password).then(
+    this._log.login(this.form.value.email, this.form.value.password).then(
       success => {
        this.router.navigate(['/list']);
 
       }, error => {
-        this.logMsg = error.message;
+        this._logMsg = error.message;
       });
+  }
+  get log() {
+    return this._log;
+  }
+
+  get logMsg() {
+    return this._logMsg;
   }
 }

@@ -14,7 +14,7 @@ export class CreateItemComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService) { }
 
-  public time = new Date();
+  private _time = new Date();
   ngOnInit() {}
 
   onSubmit(form) {
@@ -32,5 +32,9 @@ export class CreateItemComponent implements OnInit {
      this.serv.add(item);
      form.reset();
      console.log('The item added successfully');
+  }
+
+  get time() {
+    return this._time;
   }
 }

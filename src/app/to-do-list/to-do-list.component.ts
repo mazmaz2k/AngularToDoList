@@ -26,7 +26,7 @@ import { Users } from '../users';
 })
 export class ToDoListComponent {
 
-  public showHelloMsg: boolean;
+  private _showHelloMsg: boolean;
   private _user: Observable<any>;
   private name;
 
@@ -34,9 +34,9 @@ export class ToDoListComponent {
     this.userServ.getUserData(this.logreg.userUID);
     this.router.events.subscribe(event => {
       if ((<NavigationEnd>event).url === '/list') {
-        this.showHelloMsg = true;
+        this._showHelloMsg = true;
       } else {
-        this.showHelloMsg = false;
+        this._showHelloMsg = false;
       }
     });
     this._user = this.userServ.userData;
@@ -47,5 +47,9 @@ export class ToDoListComponent {
 
   get user(){
     return this._user;
+  }
+
+  get showHelloMsg() {
+    return this._showHelloMsg;
   }
 }
