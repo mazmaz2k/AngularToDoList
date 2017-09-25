@@ -1,7 +1,9 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
-exports.fcmSend = functions.database.ref('/messages/{userId}/{messageId}').onCreate(event => {
+console.log('fshi hi #$#$%homo');
+exports.fcmSend = functions.database.ref('/items').onCreate(event => {
+  console.log('fsdjf=alex 5%$$#%%%$#$%$#$#$#$%homo');
   const message = event.data.val()
   const userId  = event.params.userId
   const payload = {
