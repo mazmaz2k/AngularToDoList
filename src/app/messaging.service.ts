@@ -15,10 +15,7 @@ export class MessagingService {
       if (!user) {
         return;
       }
-      const data = {
-         [user.uid]: token
-      };
-      this.db.object('fcmTokens/').update(data);
+      this.db.object(`fcmTokens/${user.uid}`).update({token: token});
     });
   }
 
