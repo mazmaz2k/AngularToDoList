@@ -1,4 +1,3 @@
-import { EditItemComponent } from './../edit-item/edit-item.component';
 import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 import { PushService } from '../push/push.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';

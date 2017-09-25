@@ -14,7 +14,7 @@ export class CreateItemComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService) { }
 
-  private time = new Date();
+  public time = new Date();
   ngOnInit() {}
 
   onSubmit(form) {

@@ -39,7 +39,6 @@ import { AuthGuard } from './AuthGuard.service';
 
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/operator/map';
-import { EditItemComponent } from './edit-item/edit-item.component';
 import { ModalContentComponent } from './modal-content/modal-content.component';
 import { MessagingService } from './messaging.service';
 
@@ -57,7 +56,6 @@ import { MessagingService } from './messaging.service';
     ShowAllTasksComponent,
     ReversePipe,
     ShowNamePipe,
-    EditItemComponent,
     ModalContentComponent,
   ],
   imports: [

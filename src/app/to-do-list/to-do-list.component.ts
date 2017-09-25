@@ -26,7 +26,7 @@ import { Users } from '../users';
 })
 export class ToDoListComponent {
 
-  private showHelloMsg: boolean;
+  public showHelloMsg: boolean;
   private _user: Observable<any>;
   private name;
 

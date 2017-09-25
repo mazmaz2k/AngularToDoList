@@ -14,9 +14,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginFormComponent implements OnInit {
 
   form: FormGroup;
-  private logMsg: string;
+  public logMsg: string;
 
-  constructor(private fb: FormBuilder, private log: LogRegService, private router: Router, private route: ActivatedRoute,
+  constructor(private fb: FormBuilder, public log: LogRegService, private router: Router, private route: ActivatedRoute,
      private users: UsersService) { }
 
   ngOnInit() {
