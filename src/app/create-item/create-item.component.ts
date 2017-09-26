@@ -27,8 +27,9 @@ export class CreateItemComponent implements OnInit {
        userUID: this.logReg.userUID,
        msg: form.value.msg,
        date: form.value.date.toLocaleDateString('en-GB'),
-       time: form.value.time.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })
-     });
+       time: form.value.time.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }),
+       toSec: new Date(form.value.date.getFullYear(), form.value.date.getMonth(), form.value.date.getDate(), form.value.time.getHours(), form.value.time.getMinutes()).getTime(),
+      });
      this.serv.add(item);
      form.reset();
      console.log('The item added successfully');

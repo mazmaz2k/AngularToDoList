@@ -60,16 +60,23 @@ export class ToDoItemComponent implements OnInit {
     if (form.invalid) {
       return;
     }
+
+    const date: Date = this.getDateTime(form.value.date, form.value.time);
     const item = new Item({
       userUID: this.logReg.userUID,
       msg: form.value.msg,
-      date: form.value.date.toLocaleDateString('en-GB'),
-      time: form.value.time
+      date: date.toLocaleDateString('en-GB'),
+      time: date.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }),
+      toSec: date.getTime()
     });
-    this.push.delete(exItem);
-    this.push.add(item);
+      this.push.delete(exItem);
+      this.push.add(item);
    }
 
+   getDateTime(date ,time: string): Date {
+    const arr = time.split(':');
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate(), +arr[0], +arr[1]);
+   }
    debug(form) {
      console.log(form.controls['time'].invalid);
    }
