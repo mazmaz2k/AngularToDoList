@@ -15,7 +15,7 @@ exports.fcmSend = functions.database.ref('/items/{userUID}').onWrite(event => {
      admin.database()
           .ref(`/fcmTokens/${userId}`).once("value" , function(snapshot) {
             token = snapshot.val().myToken;
-            return admin.messaging().sendToDevice(token, payload);
+            admin.messaging().sendToDevice(token, payload);
           });
           // .then(res => {
           //   console.log("Sent Successfully", res);
@@ -26,14 +26,7 @@ exports.fcmSend = functions.database.ref('/items/{userUID}').onWrite(event => {
           getTime(userId);
 });
 
-function getTime(userId) {
-  const payload = {
-    notification: {
-      title: 'Reminding',
-      body: 'kasdjkdsf',
-      icon: "https://placeimg.com/250/250/people"
-    }
-  };  
+function getTime(userId) { 
   var now = new Date().getTime();
   console.log('today second is ', now);
   admin.database().ref(`/items/${userId}`).once("value", function(snapshot) {
@@ -41,9 +34,16 @@ function getTime(userId) {
     console.log(snapshot.val());
     for ( var i in snapshot.val() )
     {
-        if (snapshot.val()[i].toSec - now < 60000000000) { // 60sec * 10min = 600 sec 
+      const payload = {
+        notification: {
+          title: 'Reminding',
+          body: snapshot.val()[i].msg,
+          icon: "https://placeimg.com/250/250/people"
+        }
+      }; 
+        if (snapshot.val()[i].toSec - now < 600) { // 60sec * 10min = 600 sec 
           console.log('notification');
-          return admin.messaging().sendToDevice(token, payload);
+          admin.messaging().sendToDevice(token, payload);
         } 
     }
   });
