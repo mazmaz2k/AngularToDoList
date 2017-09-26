@@ -4,18 +4,19 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import 'rxjs/add/operator/take';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { LogRegService } from './log-reg.service';
 @Injectable()
 export class MessagingService {
   messaging = firebase.messaging();
   currentMessage = new BehaviorSubject(null);
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) { }
+  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth, private logreg: LogRegService) { }
 
   updateToken(token) {
-    this.afAuth.authState.take(1).subscribe(user => {
-      if (!user) {
+    this.logreg.isSignInStream.subscribe(signin => {
+      if (!signin) {
         return;
       }
-      this.db.object(`fcmTokens/${user.uid}`).update({'myToken': token});
+      this.db.object(`fcmTokens/${this.logreg.userUID}`).update({'myToken': token});
     });
   }
 
