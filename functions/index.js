@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
 
-var inerval = null;t
+var inerval = null;
 var timeNow = function() {
   console.log('time now is ' + new Date().getTime());
   return new Date().getTime();
