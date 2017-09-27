@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
 
-var interval = null;
+var inerval = null;t
 var timeNow = function() {
   console.log('time now is ' + new Date().getTime());
   return new Date().getTime();
@@ -53,7 +53,7 @@ function getTime(userId) {
     console.log(snapshot.val());
     for ( var i in snapshot.val() )
     {
-      if (snapshot.val()[i].toSec - now < 600) { // 60sec * 10min = 600 sec 
+      if ((snapshot.val()[i].toSec - now < 600)&& (snapshot.val()[i].toSec - now>=0)) { // 60sec * 10min = 600 sec 
         payload = {
           notification: {
             title: i,
