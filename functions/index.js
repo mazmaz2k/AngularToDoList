@@ -2,8 +2,8 @@ const functions = require('firebase-functions');
 const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
 
-var interval = null;
-var timeNow = function() {
+let interval = null;
+let timeNow = function() {
   console.log('time now is ' + new Date().getTime());
   return new Date().getTime();
 }
