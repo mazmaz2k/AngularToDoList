@@ -1,7 +1,17 @@
-{{ message | async | json }}
 
 <div class="text-center">    
   <router-outlet></router-outlet>
 </div> 
 
 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title">New Notification!</h4>
+  </div>
+  <div class="modal-body text-center">
+    <h1> {{ message }} </h1>
+  </div>
+  <div class="modal-body text-center">
+    <button class="btn btn-success" (click)="modalRef.hide()"> OK </button>
+  </div>
+</ng-template>

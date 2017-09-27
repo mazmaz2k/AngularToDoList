@@ -4,65 +4,53 @@ admin.initializeApp(functions.config().firebase);
 
 let interval = null;
 let timeNow = function() {
-  console.log('time now is ' + new Date().getTime());
   return new Date().getTime();
 }
 
-console.log('JUST A MASSAGE');
-timeNow();
-
 exports.fcmSend = functions.database.ref('/items/{userUID}').onWrite(event => {
     if(!interval) {
-      console.log('stop interval');
       clearInterval(interval);
-    } else {
-
-    }
-    const userId  = event.params.userUID;
-    const post = event.data.val();
-    const payload = {
-          notification: {
-            title: ' TITLE IS : OMRI IS VERY VERY VERY VERY VERY VERY VERY GAY',
-            body: 'OMRI IS VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY VERY GAY',
-            icon: "https://placeimg.com/250/250/people",
-          }
-        };  
-     admin.database()
+    } 
+    const userId  = event.params.userUID;  
+    admin.database()
           .ref(`/fcmTokens/${userId}`).once("value" , function(snapshot) {
             token = snapshot.val().myToken;
-            admin.messaging().sendToDevice(token, payload);
           });
-          // .then(res => {
-          //   console.log("Sent Successfully", res);
-          // })
-          // .catch(err => {
-          //   console.log(err);
-          // });
-         interval = setInterval(function() {
-            console.log('Passed 10 sec');
-            getTime(userId);
-          }, 10000);
+          
+    interval = setInterval(function() {
+      getTime(userId);
+    }, 10000);
 });
 
 function getTime(userId) { 
   var payload;
-  var now = new Date().getTime();
-  console.log('today second is ', now);
   admin.database().ref(`/items/${userId}`).once("value", function(snapshot) {
-    console.log('this is snapshot');
-    console.log(snapshot.val());
-    for ( var i in snapshot.val() )
+    for (var i in snapshot.val())
     {
-      if (snapshot.val()[i].toSec - now < 600) { // 60sec * 10min = 600 sec 
-        payload = {
-          notification: {
-            title: i,
-            body: snapshot.val()[i].msg,
-            icon: "https://placeimg.com/250/250/people"
-          }
-        }; 
-        admin.messaging().sendToDevice(token, payload);
-      } 
+      console.log(snapshot.val()[i].toSec - timeNow());
+      if (snapshot.val()[i].toSec - timeNow() < 600000) { // 60sec * 10min = 600 sec => 600000 milisec
+        console.log('Time Now Is ' + new Date(timeNow()));
+        console.log('Time in item ' + new Date(snapshot.val()[i].toSec));
+        if (snapshot.val()[i].toSec - timeNow() >= 0) {
+          console.log('SHOULD BE NOTIFICATION');
+          console.log(!snapshot.val()[i].timePassed);
+          payload = {
+            notification: {
+              title: i,
+              body: snapshot.val()[i].msg,
+              icon: "https://placeimg.com/250/250/people"
+            }
+          };
+          admin.messaging().sendToDevice(token, payload);
+          admin.database().ref(`/items/${userId}/${i}`).update({
+            wasNotified: true
+          });         
+        } else {
+          admin.database().ref(`/items/${userId}/${i}`).update({
+            timePassed: true
+          });
+        } 
+      }
     }
   });
 }
