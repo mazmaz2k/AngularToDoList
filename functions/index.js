@@ -12,8 +12,10 @@ exports.createAcc = functions.database.ref('fcmTokens/{userUID}').onCreate(event
   const userId = event.params.userUID;
   admin.database().ref(`/users/${userId}`).once("value", function (snapshot) {
     user = {
+      uid: userId,
       status: snapshot.val()._logedIn
     };
+    console.log(user);
   });
 });
 
