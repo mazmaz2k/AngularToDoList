@@ -30,9 +30,11 @@ let intervalLoginLogout = function() {
   }, 5000);
 };
 
-let intervalItemListener = setInterval(function() {
-  console.log('Listener interval');
-},10000);
+let intervalItemListener = function() {
+  setInterval(function() {
+    console.log('Listener interval');
+  },10000);
+};
 
 // admin.database().ref(`/users/${userId}`).once("value", function (snapshot) {
 //   console.log(snapshot.val());
