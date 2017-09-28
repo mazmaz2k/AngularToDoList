@@ -33,8 +33,8 @@ export class LoginFormComponent implements OnInit {
     }
     this._log.login(this.form.value.email, this.form.value.password).then(
       success => {
+        this.users.setLogIn(true, success.uid);
        this.router.navigate(['/list']);
-
       }, error => {
         this._logMsg = error.message;
       });

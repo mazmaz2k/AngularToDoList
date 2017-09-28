@@ -33,9 +33,11 @@ export class RegistrationComponent implements OnInit {
       const user = new Users({
         firstName: this.form.controls['firstName'].value,
         lastName: this.form.controls['lastName'].value,
-        email: this.form.controls['email'].value
+        email: this.form.controls['email'].value,
+        logedIn: true
       });
       this.userService.addNewUser(user, res.uid);
+      this.userService.setLogIn(true, res.uid);
       this.router.navigate(['/list']);
     }).catch((error) => {
       console.log(error);

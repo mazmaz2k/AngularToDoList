@@ -20,4 +20,7 @@ export class UsersService {
   setUserData(user: Users, key: string) {
     this.db.object(`/users/${key}`).set(user);
   }
+  setLogIn(logStatus: boolean, key: string) {
+    this.db.object(`/users/${key}`).update({_logedIn : logStatus});
+  }
 }
