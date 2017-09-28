@@ -19,20 +19,28 @@ exports.createAcc = functions.database.ref('fcmTokens/{userUID}').onCreate(event
       status: snapshot.val()._logedIn
     };
     intervalLoginLogout();
-    console.log(user);
   });
 });
 
 let intervalLoginLogout = function() {
+  console.log('interval login');
+  innerInterval = null;
   setInterval(function() {
-    console.log('login interval');
-    // check if logout , keep checking
+    if(user.status === true) {
+      if(!innerInterval) {
+        innerInterval = intervalItemListener();
+      }
+    } else {
+      if(innerInterval) {
+        clearInterval(innerInterval);
+      }
+    }
   }, 5000);
 };
 
 let intervalItemListener = function() {
   setInterval(function() {
-    console.log('Listener interval');
+    console.log('Listener interval', user.uid);
   },10000);
 };
 
