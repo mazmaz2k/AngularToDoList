@@ -14,6 +14,7 @@ exports.createAcc = functions.database.ref('fcmTokens/{userUID}').onCreate(event
     user = {
       status: snapshot.val()._logedIn
     };
+  });
 });
 
 let intervalLoginLogout = setInterval(function() {
@@ -23,7 +24,7 @@ let intervalLoginLogout = setInterval(function() {
 
 let intervalItemListener = setInterval(function() {
 
-},10000)
+},10000);
 
 // admin.database().ref(`/users/${userId}`).once("value", function (snapshot) {
 //   console.log(snapshot.val());
