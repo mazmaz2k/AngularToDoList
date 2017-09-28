@@ -6,7 +6,10 @@ let timeNow = function () {
   return new Date().getTime();
 };
 
-let user = {};
+let user = {
+  uid: '',
+  status: false
+};
 
 exports.createAcc = functions.database.ref('fcmTokens/{userUID}').onCreate(event => {
   const userId = event.params.userUID;
@@ -15,14 +18,17 @@ exports.createAcc = functions.database.ref('fcmTokens/{userUID}').onCreate(event
       uid: userId,
       status: snapshot.val()._logedIn
     };
+    intervalLoginLogout();
     console.log(user);
   });
 });
 
-let intervalLoginLogout = setInterval(function() {
-  // CHeck if loggin , Do listerner on items
-  // check if logout , keep checking
-}, 5000);
+let intervalLoginLogout = function() {
+  setInterval(function() {
+    console.log('login interval');
+    // check if logout , keep checking
+  }, 5000);
+};
 
 let intervalItemListener = setInterval(function() {
   console.log('Listener interval');
