@@ -14,7 +14,15 @@ let status;
 let interval = function () {
   setInterval(function () {
     console.log(counter, accountsArr);
-    if (counter === 30) {
+    accountsArr.forEach(function(user){
+      if(user.isLoggedIn) {
+        admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function(snapshot) {
+          this.myToken = snapshot.val().myToken;
+        });
+        getTime(user.uid, this.myToken);
+      }
+    });
+    if (counter === 90) {
       clearInterval(this);
     }
     counter++;
@@ -22,6 +30,39 @@ let interval = function () {
 };
 
 interval();
+
+function getTime(userId, token) {
+  var payload;
+  admin.database().ref(`/items/${userId}`).once("value", function (snapshot) {
+    for (var i in snapshot.val()) {
+      console.log(snapshot.val()[i].toSec - timeNow());
+      if (snapshot.val()[i].toSec - timeNow() < 600000 && !snapshot.val()[i].timePassed && !snapshot.val()[i].wasNotified) { // 60sec * 10min = 600 sec => 600000 milisec
+        console.log('Time Now Is ' + new Date(timeNow()));
+        console.log('Time in item ' + new Date(snapshot.val()[i].toSec));
+        if ((snapshot.val()[i].toSec - timeNow() >= 0)) {
+          console.log('SHOULD BE NOTIFICATION');
+          console.log(!snapshot.val()[i].timePassed);
+          payload = {
+            notification: {
+              title: i,
+              body: snapshot.val()[i].msg,
+              icon: "https://placeimg.com/250/250/people"
+            }
+          };
+          admin.messaging().sendToDevice(token, payload);
+          admin.database().ref(`/items/${userId}/${i}`).update({
+            wasNotified: true
+          });
+        } else {
+          admin.database().ref(`/items/${userId}/${i}`).update({
+            timePassed: true
+          });
+        }
+      }
+    }
+  });
+}
+
 exports.createAcc = functions.database.ref('users/{userUID}').onUpdate(event => {
   found = false;
   accountsArr.forEach(function (user) {
@@ -49,6 +90,11 @@ const isLoggedIn = function updateStatus(uid) {
     return snapshot.val()._logedIn;
   });
 };
+
+
+
+
+
 // , snapshot.val()._logedIn
 
 // class User {
@@ -120,35 +166,3 @@ const isLoggedIn = function updateStatus(uid) {
 //     getTime(userId);
 //   }, 10000);
 // });
-
-// function getTime(userId) {
-//   var payload;
-//   admin.database().ref(`/items/${userId}`).once("value", function (snapshot) {
-//     for (var i in snapshot.val()) {
-//       console.log(snapshot.val()[i].toSec - timeNow());
-//       if (snapshot.val()[i].toSec - timeNow() < 600000 && !snapshot.val()[i].timePassed && !snapshot.val()[i].wasNotified) { // 60sec * 10min = 600 sec => 600000 milisec
-//         console.log('Time Now Is ' + new Date(timeNow()));
-//         console.log('Time in item ' + new Date(snapshot.val()[i].toSec));
-//         if ((snapshot.val()[i].toSec - timeNow() >= 0)) {
-//           console.log('SHOULD BE NOTIFICATION');
-//           console.log(!snapshot.val()[i].timePassed);
-//           payload = {
-//             notification: {
-//               title: i,
-//               body: snapshot.val()[i].msg,
-//               icon: "https://placeimg.com/250/250/people"
-//             }
-//           };
-//           admin.messaging().sendToDevice(token, payload);
-//           admin.database().ref(`/items/${userId}/${i}`).update({
-//             wasNotified: true
-//           });
-//         } else {
-//           admin.database().ref(`/items/${userId}/${i}`).update({
-//             timePassed: true
-//           });
-//         }
-//       }
-//     }
-//   });
-// }
