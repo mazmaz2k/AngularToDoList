@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { element } from 'protractor';
 import { ToDoListComponent } from './../to-do-list/to-do-list.component';
-import { Component, ViewChild , ElementRef, AfterViewInit} from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
 import { UsersService } from './../users/users.service';
 import { LogRegService } from './../log-reg.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -16,26 +16,27 @@ import { Users } from '../users';
   styleUrls: ['./my-profile.component.css']
 })
 
-export class MyProfileComponent implements AfterViewInit {
+export class MyProfileComponent implements OnInit {
 
   @ViewChild('firstNameInput') firstNameInput: ElementRef;
   @ViewChild('lastNameInput') lastNameInput: ElementRef;
+  private _user: Observable<{_firstName, _lastName}>;
+  
 
   form: FormGroup = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required)
   });
-  private _user: Observable<{_firstName, _lastName}>;
 
   constructor( private list: ToDoListComponent, private userServ: UsersService,  private logreg: LogRegService, private router: Router) {
     this._user = this.userServ.userData;
   }
 
-  ngAfterViewInit() {
+  ngOnInit(): void {
     this._user.subscribe(user => {
-       this.firstNameInput.nativeElement.value = user._firstName;
-       this.lastNameInput.nativeElement.value = user._lastName;
-    });
+      this.form.controls['firstName'].setValue(user._firstName);
+      this.form.controls['lastName'].setValue(user._lastName);
+   });
   }
 
   update() {
