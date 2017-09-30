@@ -17,9 +17,9 @@ let interval = function () {
     accountsArr.forEach(function(user){
       if(user.isLoggedIn) {
         admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function(snapshot) {
-          this.myToken = snapshot.val().myToken;
+          user.myToken = snapshot.val().myToken;
         });
-        getTime(user.uid, this.myToken);
+        getTime(user.uid, user.myToken);
       }
     });
     if (counter === 90) {
