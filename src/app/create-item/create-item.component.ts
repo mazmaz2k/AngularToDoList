@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 // import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { TimepickerModule } from 'ngx-bootstrap';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-item',
   templateUrl: './create-item.component.html',
@@ -12,7 +13,7 @@ import { TimepickerModule } from 'ngx-bootstrap';
 })
 export class CreateItemComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService) { }
+  constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService, private router: Router) { }
 
   private _time = new Date();
   ngOnInit() {}
@@ -33,6 +34,7 @@ export class CreateItemComponent implements OnInit {
      this.serv.add(item);
      form.reset();
      console.log('The item added successfully');
+     this.router.navigate(['/list/showall']);
   }
 
   get time() {

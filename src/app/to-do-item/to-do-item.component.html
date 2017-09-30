@@ -37,7 +37,7 @@
   <br/> Hour: {{ item.time }}
 
   <div>
-    <button class="btn btn-primary text-right" (click)="edit(item)"> Edit </button>
+    <button class="btn btn-primary text-right" (click)="edit(item)" [disabled]="item.wasNotified || item.timePassed"> Edit </button>
     <button class="btn btn-danger text-right" (click)="openModal(template)"> Delete </button>
   </div>
 

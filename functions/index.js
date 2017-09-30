@@ -13,7 +13,7 @@ let status;
 
 let interval = function () {
   setInterval(function () {
-    console.log(counter, accountsArr);
+    // console.log(counter, accountsArr);
     accountsArr.forEach(function(user){
       if(user.isLoggedIn) {
         admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function(snapshot) {
@@ -22,11 +22,11 @@ let interval = function () {
         getTime(user.uid, user.myToken);
       }
     });
-    if (counter === 90) {
-      clearInterval(this);
-    }
-    counter++;
-  }, 5000);
+    // if (counter === 90) {
+    //   clearInterval(this);
+    // }
+    // counter++;
+  }, 30000);
 };
 
 interval();
@@ -35,13 +35,13 @@ function getTime(userId, token) {
   var payload;
   admin.database().ref(`/items/${userId}`).once("value", function (snapshot) {
     for (var i in snapshot.val()) {
-      console.log(snapshot.val()[i].toSec - timeNow());
+      // console.log(snapshot.val()[i].toSec - timeNow());
       if (snapshot.val()[i].toSec - timeNow() < 600000 && !snapshot.val()[i].timePassed && !snapshot.val()[i].wasNotified) { // 60sec * 10min = 600 sec => 600000 milisec
-        console.log('Time Now Is ' + new Date(timeNow()));
-        console.log('Time in item ' + new Date(snapshot.val()[i].toSec));
+        // console.log('Time Now Is ' + new Date(timeNow()));
+        // console.log('Time in item ' + new Date(snapshot.val()[i].toSec));
         if ((snapshot.val()[i].toSec - timeNow() >= 0)) {
-          console.log('SHOULD BE NOTIFICATION');
-          console.log(!snapshot.val()[i].timePassed);
+          // console.log('SHOULD BE NOTIFICATION');
+          // console.log(!snapshot.val()[i].timePassed);
           payload = {
             notification: {
               title: i,
