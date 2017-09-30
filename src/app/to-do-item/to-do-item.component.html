@@ -8,7 +8,7 @@
     <br/>
     When:
     <md-input-container>
-      <input mdInput type="text" name="date" [bsConfig]="{dateInputFormat: 'DD-MMM-YYYY'}" bsDatepicker [(bsValue)]="_bsValue" [ngModel]="_bsValue" required>    
+      <input mdInput type="text" name="date" [bsConfig]="{dateInputFormat: 'DD-MMM-YYYY'}" bsDatepicker [minDate]="minDate" [(bsValue)]="_bsValue" [ngModel]="_bsValue" required>    
     </md-input-container>
     <div *ngIf="f.controls['date'] && f.controls['date'].invalid; then INVALID else VALID"></div>
     <br/>

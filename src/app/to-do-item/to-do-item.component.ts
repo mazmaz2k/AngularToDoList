@@ -18,6 +18,7 @@ export class ToDoItemComponent implements OnInit {
    @Input() item;
    modalRef: BsModalRef;
    _bsValue: Date;
+   minDate: Date = new Date();
    constructor(private push: PushService,
                private router: Router,
                private route: ActivatedRoute,
