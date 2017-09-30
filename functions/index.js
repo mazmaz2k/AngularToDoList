@@ -14,12 +14,18 @@ let status;
 let interval = function () {
   setInterval(function () {
     // console.log(counter, accountsArr);
-    accountsArr.forEach(function(user){
-      if(user.isLoggedIn) {
-        admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function(snapshot) {
-          user.myToken = snapshot.val().myToken;
-        });
-        getTime(user.uid, user.myToken);
+    accountsArr.forEach(function (user) {
+      if (user.isLoggedIn) {
+        if (!user.myToken) {
+          admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function (snapshot) {
+            user.myToken = snapshot.val().myToken;
+          });
+        }
+        console.log('Test', user.myToken);
+        if (user.myToken && user.myToken !== '') {
+          console.log('calling getTime');
+          getTime(user.uid, user.myToken);
+        }
       }
     });
     // if (counter === 90) {
