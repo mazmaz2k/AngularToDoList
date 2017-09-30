@@ -28,10 +28,10 @@ let interval = function () {
         }
       }
     });
-    // if (counter === 90) {
-    //   clearInterval(this);
-    // }
-    // counter++;
+    if (counter === 120) {
+      clearInterval(this);
+    }
+    counter++;
   }, 30000);
 };
 
@@ -41,7 +41,7 @@ function getTime(userId, token) {
   var payload;
   admin.database().ref(`/items/${userId}`).once("value", function (snapshot) {
     for (var i in snapshot.val()) {
-      // console.log(snapshot.val()[i].toSec - timeNow());
+      console.log('for task "' , i , '" time left is: ' ,snapshot.val()[i].toSec - timeNow(), ' miliseconds to pop up');
       if (snapshot.val()[i].toSec - timeNow() < 600000 && !snapshot.val()[i].timePassed && !snapshot.val()[i].wasNotified) { // 60sec * 10min = 600 sec => 600000 milisec
         // console.log('Time Now Is ' + new Date(timeNow()));
         // console.log('Time in item ' + new Date(snapshot.val()[i].toSec));
@@ -50,9 +50,9 @@ function getTime(userId, token) {
           // console.log(!snapshot.val()[i].timePassed);
           payload = {
             notification: {
-              title: i,
+              title: 'REMINDER NOTIFICATION',
               body: snapshot.val()[i].msg,
-              icon: "https://placeimg.com/250/250/people"
+              icon: 'http://www.opusspark.com/images/notification_icon.png'
             }
           };
           admin.messaging().sendToDevice(token, payload);
@@ -69,18 +69,7 @@ function getTime(userId, token) {
   });
 }
 
-exports.createAcc = functions.database.ref('users/{userUID}').onUpdate(event => {
-  found = false;
-  accountsArr.forEach(function (user) {
-    if (user.uid === event.params.userUID) {
-      isLoggedIn(event.params.userUID).then(snapshot => {
-        user.isLoggedIn = snapshot.val()._logedIn;
-      });
-      found = true;
-      return;
-    }
-  });
-  if (!found) {
+exports.createAcc = functions.database.ref('users/{userUID}').onCreate(event => {
     newUserAccount = {
       uid: event.params.userUID,
     };
@@ -88,7 +77,17 @@ exports.createAcc = functions.database.ref('users/{userUID}').onUpdate(event => 
       newUserAccount.isLoggedIn = snapshot.val()._logedIn;
     })
     accountsArr.push(newUserAccount);
-  }
+});
+
+exports.createAcc = functions.database.ref('users/{userUID}').onUpdate(event => {
+  accountsArr.forEach(function (user) {
+    if (user.uid === event.params.userUID) {
+      isLoggedIn(event.params.userUID).then(snapshot => {
+        user.isLoggedIn = snapshot.val()._logedIn;
+      });
+      return;
+    }
+  });
 });
 
 const isLoggedIn = function updateStatus(uid) {

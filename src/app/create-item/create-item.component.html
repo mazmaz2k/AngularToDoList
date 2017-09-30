@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <md-input-container>
-        <input mdInput type="text" name="date" placeholder="Date Picker" [bsConfig]="{dateInputFormat: 'DD-MM-YYYY'}" bsDatepicker ngModel required>
+        <input mdInput type="text" name="date" placeholder="Date Picker" [minDate]="minDate" [bsConfig]="{dateInputFormat: 'DD-MM-YYYY'}" bsDatepicker ngModel required>
       </md-input-container>
     </div>
     <div class="form-group text-center" style="width: 20%;">

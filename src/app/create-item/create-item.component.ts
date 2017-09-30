@@ -13,9 +13,11 @@ import { Router } from '@angular/router';
 })
 export class CreateItemComponent implements OnInit {
 
+  private _minDate = new Date();
+  private _time = new Date();
+  
   constructor(private fb: FormBuilder, private logReg: LogRegService, private serv: PushService, private router: Router) { }
 
-  private _time = new Date();
   ngOnInit() {}
 
   onSubmit(form) {
@@ -39,5 +41,9 @@ export class CreateItemComponent implements OnInit {
 
   get time() {
     return this._time;
+  }
+
+  get minDate() {
+    return this._minDate;
   }
 }
