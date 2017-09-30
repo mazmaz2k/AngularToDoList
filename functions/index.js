@@ -22,7 +22,16 @@ let interval = function() {
 };
 
 interval();
-exports.createAcc = functions.database.ref('fcmTokens/{userUID}').onCreate(event => {
+exports.createAcc = functions.database.ref('users/{userUID}').onUpdate(event => {
+  accountsArr.forEach(function(user) {
+    if(user.uid === event.params.userUID) {
+      isLoggedIn(event.params.userUID).then(snapshot => {
+        user.isLoggedIn = snapshot.val()._logedIn;
+      });
+      return;
+    }
+  });
+
   newUserAccount = {
     uid: event.params.userUID,
   };
