@@ -6,44 +6,72 @@ let timeNow = function () {
   return new Date().getTime();
 };
 
-let user = {
-  uid: '',
-  status: false
-};
+let accountsArr = [];
+let counter = 0;
+let uid;
+let status;
 
-exports.createAcc = functions.database.ref('fcmTokens/{userUID}').onCreate(event => {
-  const userId = event.params.userUID;
-  admin.database().ref(`/users/${userId}`).once("value", function (snapshot) {
-    user = {
-      uid: userId,
-      status: snapshot.val()._logedIn
-    };
-    intervalLoginLogout();
-  });
-});
-
-let intervalLoginLogout = function() {
-  console.log('interval login');
-  innerInterval = null;
+let interval = function() {
   setInterval(function() {
-    if(user.status === true) {
-      if(!innerInterval) {
-        innerInterval = intervalItemListener();
-      }
-    } else {
-      if(innerInterval) {
-        clearInterval(innerInterval);
-      }
+    console.log(counter, accountsArr);
+    if(counter === 30) {
+      clearInterval(this);
     }
+    counter++;
   }, 5000);
 };
 
-let intervalItemListener = function() {
-  setInterval(function() {
-    console.log('Listener interval', user.uid);
-  },10000);
-};
+interval();
+exports.createAcc = functions.database.ref('fcmTokens/{userUID}').onCreate(event => {
+  newUserAccount = {
+    uid: event.params.userUID,
+  };
+  isLoggedIn(event.params.userUID).then(snapshot => {
+    newUserAccount.isLoggedIn = snapshot.val()._logedIn;
+  })
+  accountsArr.push(newUserAccount);
+ });
 
+ const isLoggedIn = function updateStatus(uid) {
+   return admin.database().ref(`/users/${uid}`).once("value", function (snapshot) {
+       return snapshot.val()._logedIn;
+    });
+  };
+// , snapshot.val()._logedIn
+
+// class User {
+
+//   constructor(uid) {
+//     this.uid = uid;
+//     this.status = false;
+//   }
+//   intervalItemListener() {
+//     setInterval(function() {
+//       console.log('Listener interval', this.uid);
+//     },10000);
+//   };
+
+//   intervalLoginLogout() {
+//     let innerInterval = null;
+//     setInterval(() => {
+//       this.updateStatus();
+//       console.log(' in interval ', this.uid);
+//       console.log('my status is ', this.status);
+//       if(this.status === true) {
+//         if(!innerInterval) {
+//           innerInterval = this.intervalItemListener();
+//         }
+//       } else {
+//         if(innerInterval) {
+//           clearInterval(innerInterval);
+//           innerInterval = null;
+//         }
+//       }
+//     }, 5000);
+//   };
+
+//   }
+// }
 // admin.database().ref(`/users/${userId}`).once("value", function (snapshot) {
 //   console.log(snapshot.val());
 //   console.log('create once');
