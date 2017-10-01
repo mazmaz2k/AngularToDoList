@@ -33,13 +33,13 @@ Duration: 25 Days
 
 ## Tutorial
 
-You must register with a new account.
-Once you register a new account, you can create/delete or edit existing todo tasks 
-with deadline time, and the application will notify you 10 minute before 
+* You must register with a new account.
+* Once you register a new account, you can create/delete or edit existing todo tasks 
+ with deadline time, and the application will notify you 10 minute before 
 the date you entered.
-Even if your web page is closed, if you are logged in, the applicatoin will
+* Even if your web page is closed, if you are logged in, the applicatoin will
 send you a notification so you wont miss you task.
-Thank you for using our application.
+* Thank you for using our application.
 
 
 ## Created by
