@@ -23,7 +23,7 @@ If you dont know where to find 'node_modules' follow the next steps:
 
 ## Link
 
-*https://todoapplicatoin.firebaseapp.com/login
+https://todoapplicatoin.firebaseapp.com/login
 
 ## Done
 
