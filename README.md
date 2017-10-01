@@ -23,8 +23,8 @@ If you dont know where to find 'node_modules' follow the next steps:
 
 ## Done
 
-Starting Date: 06/09/2017  
-Finish Date: 01/10/2017
+Starting Date: 06/09/2017<br>
+Finish Date: 01/10/2017<br>
 Duration: 25 Days
 
 ## Tutorial
@@ -40,5 +40,5 @@ Thank you for using our application.
 
 ## Created by
 
-*Alex 
+*Alex<br>
 *Omri
