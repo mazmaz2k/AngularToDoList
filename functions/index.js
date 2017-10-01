@@ -16,6 +16,7 @@ let interval = function () {
     // console.log(counter, accountsArr);
     accountsArr.forEach(function (user) {
       if (user.isLoggedIn) {
+        try{
         if (!user.myToken) {
           admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function (snapshot) {
             user.myToken = snapshot.val().myToken;
@@ -27,7 +28,13 @@ let interval = function () {
           getTime(user.uid, user.myToken);
         }
       }
+      catch(err){
+        console.error('error',err);
+      }
+    }
+
     });
+  
     if (counter === 120) {
       clearInterval(this);
     }
