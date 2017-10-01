@@ -15,8 +15,13 @@ let interval = function () {
   setInterval(function () {
     // console.log(counter, accountsArr);
     accountsArr.forEach(function (user) {
-      if (user.isLoggedIn) {
-        try {
+      // try {
+      //   if (user === null) {
+      //     throw new Error('user is null exception');
+      //   }
+        if (user.isLoggedIn) {
+          // try {
+
           if (!user.myToken) {
             admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function (snapshot) {
               user.myToken = snapshot.val().myToken;
@@ -27,11 +32,12 @@ let interval = function () {
             console.log('calling getTime');
             getTime(user.uid, user.myToken);
           }
+          // }
+
         }
-        catch (err) {
-          console.error('error', err);
-        }
-      }
+      // } catch (err) {
+      //   console.log('error', err);
+      // }
 
     });
 
