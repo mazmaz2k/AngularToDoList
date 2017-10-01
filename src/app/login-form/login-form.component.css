@@ -1,4 +1,4 @@
-@import "https://fonts.fontstorage.com/import/flow.css";
+/* @import "https://fonts.fontstorage.com/import/flow.css"; */
 
 .glyphicon {
     font-size: 20px;
@@ -9,7 +9,7 @@
 }
 
 h1 {
-    font-family: 'Flow Ext';
+   /* font-family: 'Flow ';*/
     font-size: 40px;
 }
 
