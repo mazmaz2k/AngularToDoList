@@ -1,0 +1,67 @@
+[debug] [2017-10-01T18:57:15.259Z] ----------------------------------------------------------------------
+[debug] [2017-10-01T18:57:15.263Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mazma\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase init
+[debug] [2017-10-01T18:57:15.263Z] CLI Version:   3.12.0
+[debug] [2017-10-01T18:57:15.263Z] Platform:      win32
+[debug] [2017-10-01T18:57:15.263Z] Node Version:  v8.2.1
+[debug] [2017-10-01T18:57:15.264Z] Time:          Sun Oct 01 2017 21:57:15 GMT+0300 (שעון קיץ ירושלים)
+[debug] [2017-10-01T18:57:15.264Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-01T18:57:15.282Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2017-10-01T18:57:15.283Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\practice\todoWebApplication
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2017-10-01T18:57:20.186Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+ Sun Oct 01 2017 21:57:20 GMT+0300 (שעון קיץ ירושלים)
+[debug] [2017-10-01T18:57:21.074Z] <<< HTTP RESPONSE 200
+[info] i  .firebaserc already has a default project, skipping
+[info] 
+=== Functions Setup
+[info] 
+[info] A functions directory will be created in your project with a Node.js
+[info] package pre-configured. Functions can be deployed with firebase deploy.
+[info] 
+[debug] [2017-10-01T18:57:21.080Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-01T18:57:21.080Z] > authorizing via signed-in user
+[debug] [2017-10-01T18:57:21.081Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-01T18:57:21.082Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/6moGWVT4r95vIAJUFBFH0TgqdleY5JQj4fIS-2Boxk8',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Oct 01 2017 21:57:21 GMT+0300 (שעון קיץ ירושלים)
+[debug] [2017-10-01T18:57:21.413Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-01T18:57:21.469Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/todoapplicatoin  
+ Sun Oct 01 2017 21:57:21 GMT+0300 (שעון קיץ ירושלים)
+[debug] [2017-10-01T18:57:22.087Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-01T18:57:22.089Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/todoapplicatoin/tokens  
+ Sun Oct 01 2017 21:57:22 GMT+0300 (שעון קיץ ירושלים)
+[debug] [2017-10-01T18:57:22.850Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-01T18:57:22.858Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/todoapplicatoin?updateMask=usageSettings { usageSettings: { consumerEnableStatus: 'ENABLED' } } 
+ Sun Oct 01 2017 21:57:22 GMT+0300 (שעון קיץ ירושלים)
+[debug] [2017-10-01T18:57:22.862Z] >>> HTTP REQUEST PATCH https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/todoapplicatoin?updateMask=usageSettings { usageSettings: { consumerEnableStatus: 'ENABLED' } } 
+ Sun Oct 01 2017 21:57:22 GMT+0300 (שעון קיץ ירושלים)
+[debug] [2017-10-01T18:57:24.677Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-01T18:57:25.075Z] <<< HTTP RESPONSE 200
+[info] i  Skipping write of functions/package.json
+[info] i  Skipping write of functions/index.js

@@ -7,7 +7,7 @@ let timeNow = function () {
 };
 
 let accountsArr = [];
-let counter = 0;
+
 let uid;
 let status;
 
@@ -20,7 +20,7 @@ let interval = function () {
       //     throw new Error('user is null exception');
       //   }
         if (user.isLoggedIn) {
-          // try {
+          
 
           if (!user.myToken) {
             admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function (snapshot) {
@@ -32,8 +32,7 @@ let interval = function () {
             console.log('calling getTime');
             getTime(user.uid, user.myToken);
           }
-          // }
-
+  
         }
       // } catch (err) {
       //   console.log('error', err);
@@ -41,9 +40,9 @@ let interval = function () {
 
     });
 
-    if (counter === 120) {
-      clearInterval(this);
-    }
+    // if (counter === 120) {
+    //   clearInterval(this);
+    // }
     counter++;
   }, 30000);
 };
