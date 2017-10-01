@@ -44,5 +44,5 @@ Thank you for using our application.
 
 ## Created by
 
-*Alex<br>
-*Omri
+* Alex<br>
+* Omri
