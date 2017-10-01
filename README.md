@@ -20,3 +20,29 @@ If you dont know where to find 'node_modules' follow the next steps:
 * Gesture-Support: npm install --save hammerjs
 * Material-Icons: npm install material-design-icons
 * Flex Layout: npm install @angular/flex-layout --save
+
+## Link
+
+https://todoapplicatoin.firebaseapp.com/login
+
+## Done
+
+Starting Date: 06/09/2017<br>
+Finish Date: 01/10/2017<br>
+Duration: 25 Days
+
+## Tutorial
+
+You must register with a new account.
+Once you register a new account, you can create/delete or edit existing todo tasks 
+with deadline time, and the application will notify you 10 minute before 
+the date you entered.
+Even if your web page is closed, if you are logged in, the applicatoin will
+send you a notification so you wont miss you task.
+Thank you for using our application.
+
+
+## Created by
+
+* Alex<br>
+* Omri
