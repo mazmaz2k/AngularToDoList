@@ -13,37 +13,40 @@ let status;
 
 let interval = function () {
   setInterval(function () {
-    // console.log(counter, accountsArr);
+     console.log( accountsArr);
     accountsArr.forEach(function (user) {
-      // try {
-      //   if (user === null) {
-      //     throw new Error('user is null exception');
-      //   }
+       try {
+        if (user === null) {
+         throw new Error('user is null exception');
+        }
+      // console.log('0');
         if (user.isLoggedIn) {
           
-
-          if (!user.myToken) {
+          // console.log('1');
+          if (user &&!user.myToken) {
             admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function (snapshot) {
               user.myToken = snapshot.val().myToken;
             });
+            // console.log('2');
           }
           console.log('Test', user.myToken);
           if (user.myToken && user.myToken !== '') {
             console.log('calling getTime');
             getTime(user.uid, user.myToken);
+            // console.log('3');
           }
   
         }
-      // } catch (err) {
-      //   console.log('error', err);
-      // }
+      } catch (err) {
+        console.log('error', err);
+      }
 
     });
 
     // if (counter === 120) {
     //   clearInterval(this);
     // }
-    counter++;
+    // console.log('4');
   }, 30000);
 };
 
@@ -81,26 +84,29 @@ function getTime(userId, token) {
   });
 }
 
-exports.createAcc = functions.database.ref('users/{userUID}').onCreate(event => {
-  newUserAccount = {
-    uid: event.params.userUID,
-  };
-  isLoggedIn(event.params.userUID).then(snapshot => {
-    newUserAccount.isLoggedIn = snapshot.val()._logedIn;
-  })
-  accountsArr.push(newUserAccount);
-});
+
 
 exports.createAcc = functions.database.ref('users/{userUID}').onUpdate(event => {
-  accountsArr.forEach(function (user) {
-    if (user.uid === event.params.userUID) {
+  found = false;
+    accountsArr.forEach(function (user) {
+      if (user.uid === event.params.userUID) {
+         isLoggedIn(event.params.userUID).then(snapshot => {
+           user.isLoggedIn = snapshot.val()._logedIn;
+         });
+        found = true;
+         return;
+       }
+     });
+    if (!found) {
+      newUserAccount = {
+        uid: event.params.userUID,
+      };
       isLoggedIn(event.params.userUID).then(snapshot => {
-        user.isLoggedIn = snapshot.val()._logedIn;
-      });
-      return;
+        newUserAccount.isLoggedIn = snapshot.val()._logedIn;
+      })
+      accountsArr.push(newUserAccount);
     }
   });
-});
 
 const isLoggedIn = function updateStatus(uid) {
   return admin.database().ref(`/users/${uid}`).once("value", function (snapshot) {
