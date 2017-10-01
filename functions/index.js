@@ -16,25 +16,25 @@ let interval = function () {
     // console.log(counter, accountsArr);
     accountsArr.forEach(function (user) {
       if (user.isLoggedIn) {
-        try{
-        if (!user.myToken) {
-          admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function (snapshot) {
-            user.myToken = snapshot.val().myToken;
-          });
+        try {
+          if (!user.myToken) {
+            admin.database().ref(`/fcmTokens/${user.uid}`).once("value", function (snapshot) {
+              user.myToken = snapshot.val().myToken;
+            });
+          }
+          console.log('Test', user.myToken);
+          if (user.myToken && user.myToken !== '') {
+            console.log('calling getTime');
+            getTime(user.uid, user.myToken);
+          }
         }
-        console.log('Test', user.myToken);
-        if (user.myToken && user.myToken !== '') {
-          console.log('calling getTime');
-          getTime(user.uid, user.myToken);
+        catch (err) {
+          console.error('error', err);
         }
       }
-      catch(err){
-        console.error('error',err);
-      }
-    }
 
     });
-  
+
     if (counter === 120) {
       clearInterval(this);
     }
@@ -48,7 +48,7 @@ function getTime(userId, token) {
   var payload;
   admin.database().ref(`/items/${userId}`).once("value", function (snapshot) {
     for (var i in snapshot.val()) {
-      console.log('for task "' , i , '" time left is: ' ,snapshot.val()[i].toSec - timeNow(), ' miliseconds to pop up');
+      console.log('for task "', i, '" time left is: ', snapshot.val()[i].toSec - timeNow(), ' miliseconds to pop up');
       if (snapshot.val()[i].toSec - timeNow() < 600000 && !snapshot.val()[i].timePassed && !snapshot.val()[i].wasNotified) { // 60sec * 10min = 600 sec => 600000 milisec
         // console.log('Time Now Is ' + new Date(timeNow()));
         // console.log('Time in item ' + new Date(snapshot.val()[i].toSec));
@@ -77,13 +77,13 @@ function getTime(userId, token) {
 }
 
 exports.createAcc = functions.database.ref('users/{userUID}').onCreate(event => {
-    newUserAccount = {
-      uid: event.params.userUID,
-    };
-    isLoggedIn(event.params.userUID).then(snapshot => {
-      newUserAccount.isLoggedIn = snapshot.val()._logedIn;
-    })
-    accountsArr.push(newUserAccount);
+  newUserAccount = {
+    uid: event.params.userUID,
+  };
+  isLoggedIn(event.params.userUID).then(snapshot => {
+    newUserAccount.isLoggedIn = snapshot.val()._logedIn;
+  })
+  accountsArr.push(newUserAccount);
 });
 
 exports.createAcc = functions.database.ref('users/{userUID}').onUpdate(event => {
