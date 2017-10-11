@@ -42,8 +42,10 @@ export class MyProfileComponent implements OnInit {
   update() {
     const user = new Users({
       firstName: this.form.controls['firstName'].value === '' ? this.firstNameInput.nativeElement.value : this.form.controls['firstName'].value,
-      lastName: this.form.controls['lastName'].value === '' ? this.lastNameInput.nativeElement.value : this.form.controls['lastName'].value
+      lastName: this.form.controls['lastName'].value === '' ? this.lastNameInput.nativeElement.value : this.form.controls['lastName'].value,
+
     });
+    user.logedIn = true;
     this.userServ.setUserData(user, this.logreg.userUID);
     this.router.navigate(['/list']);
   }
