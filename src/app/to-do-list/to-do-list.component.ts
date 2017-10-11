@@ -30,13 +30,16 @@ export class ToDoListComponent {
   private _user: Observable<any>;
   private name;
 
+  private _showPic: boolean;
   constructor(private router: Router, private route: ActivatedRoute, private userServ: UsersService, private logreg: LogRegService) {
     this.userServ.getUserData(this.logreg.userUID);
     this.router.events.subscribe(event => {
       if ((<NavigationEnd>event).url === '/list') {
         this._showHelloMsg = true;
+        this._showPic = true;
       } else {
         this._showHelloMsg = false;
+        this._showPic = false;
       }
     });
     this._user = this.userServ.userData;
@@ -49,6 +52,9 @@ export class ToDoListComponent {
     return this._user;
   }
 
+  get showPicMsg(){
+    return this._showPic;
+  }
   get showHelloMsg() {
     return this._showHelloMsg;
   }
