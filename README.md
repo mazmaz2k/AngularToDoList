@@ -44,5 +44,6 @@ send you a notification so you wont miss you task.
 
 ## Created by
 
-* Alex<br>
-* Omri
+* Omri<br>
+* Alex
+
